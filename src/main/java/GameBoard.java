@@ -2,6 +2,7 @@ import gui_fields.GUI_Field;
 
 import java.awt.*;
 
+
 public class GameBoard {
     private Field[] fields;
 
