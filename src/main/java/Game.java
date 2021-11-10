@@ -8,7 +8,66 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class Game {
-    private Game() {
+
+    GameBoard gameboard;
+    GUI gui;
+    Spiller[] players;
+    Terning terning1;
+    Terning terning2;
+    int amountOfPlayers;
+
+
+    public Game() {
+        this.gameboard = new GameBoard();
+        this.gui = new GUI(gameboard.getGuiFields());
+        this.players = new Spiller[]{new Spiller(35, "John"), new Spiller(35, "Marcus"),
+                new Spiller(35, "Jack"), new Spiller(35, "Joy")};
+        this.terning1 = new Terning(6);
+        this.terning2 = new Terning(6);
+    }
+
+    public void newGame() {
+        switch (gui.getUserSelection("How many players?", "2", "3", "4")) {
+            case "2":
+                addPlayers(2,gui);
+                amountOfPlayers=2;
+                break;
+            case "3":
+                addPlayers(3,gui);
+                amountOfPlayers=3;
+                break;
+            case "4":
+                addPlayers(4,gui);
+                amountOfPlayers=4;
+                break;
+        }
+    }
+
+    private void addPlayers(int n,GUI gui){
+        for(int i=0;i<n;i++){
+            gui.addPlayer(players[i].getPlayer());
+        }
+    }
+
+    public void playGame(){
+        int t1;
+        int t2;
+        int die;
+        int playersTurn;
+
+        for(int i=0;i<24;i++){
+            this.gui.getUserButtonPressed("kast","kast");
+            t1= terning1.kastTerning();
+            t2= terning2.kastTerning();
+            die=t1+t2;
+            playersTurn=i%amountOfPlayers;
+            this.gameboard.getGuiFields()[die].setCar(this.players[playersTurn].getPlayer(),true);
+        }
+
+
+    }
+
+    private void takeTurn(){
     }
 
     public static void nytSpil() {
@@ -20,14 +79,14 @@ public class Game {
         Spiller spiller1 = new Spiller(1000, "Player 2");
         Spiller spiller2 = new Spiller(1000, "Player 1");
 
+        //Spiller objektet bliver nu tilføjet til vores GUI, så navn og saldo vises på spillebrættet.
+        gui.addPlayer(spiller1.getPlayer());
+        gui.addPlayer(spiller2.getPlayer());
+
+
         //Boolean til at spille igen
         boolean YesorNo;
 
-        //Spiller objektet bliver nu tilføjet til vores GUI, så navn og saldo vises på spillebrættet.
-        GUI_Player sp1 = new GUI_Player(spiller1.getNavn(), spiller1.getSaldo());
-        gui.addPlayer(sp1);
-        GUI_Player sp2 = new GUI_Player(spiller2.getNavn(), spiller2.getSaldo());
-        gui.addPlayer(sp2);
 
         //2 Terninger oprettes med 6 sider.
         Terning terning1 = new Terning(6);
@@ -68,9 +127,9 @@ public class Game {
                 spiller1.setTur(false);
                 spiller2.setTur(true);
                 for (int index = 0; index < 11; index++) {
-                    if (gameboard.getGuiFields()[index].hasCar(sp2)) {
+                    if (gameboard.getGuiFields()[index].hasCar(spiller2.getPlayer())) {
                         gameboard.getGuiFields()[index].removeAllCars();
-                        gameboard.getGuiFields()[index].setCar(sp2, true);
+                        gameboard.getGuiFields()[index].setCar(spiller2.getPlayer(), true);
                     } else
                         gameboard.getGuiFields()[index].removeAllCars();
                 }
@@ -87,10 +146,10 @@ public class Game {
                 if (YesorNo) {
                     spiller1.saldoOpdatering(-4000);
                     spiller1.saldoOpdatering(1000);
-                    sp1.setBalance(spiller1.getSaldo());
+                    spiller1.getPlayer().setBalance(spiller1.getSaldo());
                     spiller2.saldoOpdatering(-4000);
                     spiller2.saldoOpdatering(1000);
-                    sp2.setBalance(spiller2.getSaldo());
+                    spiller2.getPlayer().setBalance(spiller2.getSaldo());
 
                     int j = 0;
                     while (j < 1) {
@@ -122,9 +181,9 @@ public class Game {
                 spiller2.setTur(false);
                 spiller1.setTur(true);
                 for (int index = 0; index < 11; index++) {
-                    if (gameboard.getGuiFields()[index].hasCar(sp1)) {
+                    if (gameboard.getGuiFields()[index].hasCar(spiller1.getPlayer())) {
                         gameboard.getGuiFields()[index].removeAllCars();
-                        gameboard.getGuiFields()[index].setCar(sp1, true);
+                        gameboard.getGuiFields()[index].setCar(spiller1.getPlayer(), true);
                     } else
                         gameboard.getGuiFields()[index].removeAllCars();
                 }
@@ -142,10 +201,10 @@ public class Game {
                 if (YesorNo) {
                     spiller1.saldoOpdatering(-4000);
                     spiller1.saldoOpdatering(1000);
-                    sp1.setBalance(spiller1.getSaldo());
+                    spiller1.getPlayer().setBalance(spiller1.getSaldo());
                     spiller2.saldoOpdatering(-4000);
                     spiller2.saldoOpdatering(1000);
-                    sp2.setBalance(spiller2.getSaldo());
+                    spiller2.getPlayer().setBalance(spiller2.getSaldo());
 
                     int j = 0;
                     while (j < 1) {
