@@ -1,6 +1,9 @@
 package Game;//Denne klasse bruges til at lave spilleren, samt opretter en saldo, navn og gør det muligt at skifte tur
 
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
+
+import java.awt.*;
 
 public class Player {
     private Account konto;
@@ -9,7 +12,9 @@ public class Player {
     private GUI_Player player;
     private int locationIndex;
 
-    public Player(int saldo, String navn){
+    private GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
+
+    public Player(int saldo, String navn,GUI_Car car){
         if (saldo<0){
             this.konto = new Account(0);
         }
@@ -17,8 +22,9 @@ public class Player {
             this.konto = new Account(saldo);
         }
         this.navn=navn;
-        this.player = new GUI_Player(navn,saldo);
+        this.player = new GUI_Player(navn,saldo,car);
     }
+
 
     /**
      * Adds to the player's account and GUI

@@ -1,7 +1,10 @@
 package Game;// Denne klasse bruges til at lave selve spillet
 
 import Game.Board.GameBoard;
+import gui_fields.GUI_Car;
 import gui_main.GUI;
+
+import java.awt.*;
 
 public class Game {
 
@@ -17,8 +20,11 @@ public class Game {
     public Game() {
         this.gameboard = new GameBoard();
         this.gui = new GUI(gameboard.getGuiFields());
-        this.players = new Player[]{new Player(35, "Beier"), new Player(35, "Marcus"),
-                new Player(35, "Jack"), new Player(35, "Joy")};
+        this.players = new Player[]{
+                new Player(35, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL)),
+                new Player(35, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL)),
+                new Player(35, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)),
+                new Player(35, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL))};
         this.dice = new Dice(6);
     }
 
