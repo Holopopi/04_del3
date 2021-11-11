@@ -16,7 +16,9 @@ public class Game {
     Terning terning2;
     int amountOfPlayers;
 
-
+    /**
+     * Initializes new game
+     */
     public Game() {
         this.gameboard = new GameBoard();
         this.gui = new GUI(gameboard.getGuiFields());
@@ -26,6 +28,9 @@ public class Game {
         this.terning2 = new Terning(6);
     }
 
+    /**
+     * Amount of players as a user selection. Adds the amount of players the user wishes.
+     */
     public void newGame() {
         switch (gui.getUserSelection("How many players?", "2", "3", "4")) {
             case "2":
@@ -42,33 +47,66 @@ public class Game {
                 break;
         }
     }
-
+    /**
+     * method used to initialize an n amount of players.
+     */
     private void addPlayers(int n,GUI gui){
         for(int i=0;i<n;i++){
             gui.addPlayer(players[i].getPlayer());
         }
     }
 
+    /**
+     * Starts the game
+     */
     public void playGame(){
-        int t1;
-        int t2;
-        int die;
+        int i = 0;
         int playersTurn;
 
-        for(int i=0;i<24;i++){
-            this.gui.getUserButtonPressed("kast","kast");
-            t1= terning1.kastTerning();
-            t2= terning2.kastTerning();
-            die=t1+t2;
+        while(players[1].getSaldo()>0){
             playersTurn=i%amountOfPlayers;
-            this.gameboard.getGuiFields()[die].setCar(this.players[playersTurn].getPlayer(),true);
+            takeTurn(players[playersTurn]);
+
+            i++;
         }
 
 
     }
 
-    private void takeTurn(){
+    /**
+     * Player takes a turn.
+     */
+    private void takeTurn(Spiller player){
+        this.gui.getUserButtonPressed("kast","kast");
+
+        int dice = terning1.kastTerning();
+        this.gui.setDice(dice,0);
+        movePlayer(player,dice);
+
+
+
     }
+
+    /**
+     * Player moves to new field.
+     */
+    private void movePlayer(Spiller player, int dice) {
+        this.gameboard.removePlayer(player);
+        int newLocation=dice+player.getLocationIndex();
+        player.setLocationIndex(newLocation);
+        this.gameboard.getGuiFields()[player.getLocationIndex()].setCar(player.getPlayer(),true);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public static void nytSpil() {
 
