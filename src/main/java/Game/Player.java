@@ -1,20 +1,20 @@
-//Denne klasse bruges til at lave spilleren, samt opretter en saldo, navn og gør det muligt at skifte tur
+package Game;//Denne klasse bruges til at lave spilleren, samt opretter en saldo, navn og gør det muligt at skifte tur
 
 import gui_fields.GUI_Player;
 
-public class Spiller {
-    private Konto konto;
+public class Player {
+    private Account konto;
     private String navn;
     private Boolean tur;
     private GUI_Player player;
     private int locationIndex;
 
-    public Spiller(int saldo,String navn){
+    public Player(int saldo, String navn){
         if (saldo<0){
-            this.konto = new Konto(0);
+            this.konto = new Account(0);
         }
         else {
-            this.konto = new Konto(saldo);
+            this.konto = new Account(saldo);
         }
         this.navn=navn;
         this.player = new GUI_Player(navn,saldo);
@@ -63,7 +63,7 @@ public class Spiller {
      */
     public void setLocationIndex(int location) {
         if (location>24){
-            this.saldoOpdatering(2);
+            collectStart();
         }
         this.locationIndex = location%24;
     }

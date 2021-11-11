@@ -1,8 +1,10 @@
+package Game;
+
 //Denne klasse bruges til at lave en pengebeholdning
-// Konto bliver oprettet inde på spilleren istedet for at blive oprettet inde på kontoklassen
-public class Konto {
+// Game.Konto bliver oprettet inde på spilleren istedet for at blive oprettet inde på kontoklassen
+public class Account {
     public int saldo;
-    public Konto(int saldo){
+    public Account(int saldo){
         this.saldo = saldo;
     }
     public int getSaldo() {

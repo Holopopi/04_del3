@@ -1,9 +1,9 @@
-// Denne klasse bruges til at lave en terning
+package Game;// Denne klasse bruges til at lave en terning
 // Her instantieres terningen
 
-public class Terning {
+public class Dice {
     private int sider;
-    public Terning(int sider){
+    public Dice(int sider){
 
         if(sider<0){
             this.sider=0;

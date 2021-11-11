@@ -1,6 +1,6 @@
-import gui_fields.GUI_Field;
+package Game.Board;
+
 import gui_fields.GUI_Jail;
-import gui_fields.GUI_Start;
 
 import java.awt.*;
 
