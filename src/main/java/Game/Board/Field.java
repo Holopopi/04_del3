@@ -42,7 +42,7 @@ public abstract class Field {
         return this;
     }
 
-    abstract protected void runAction();
+
 
     abstract protected GUI_Field createGUIField();
 
