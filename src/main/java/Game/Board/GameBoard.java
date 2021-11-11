@@ -1,3 +1,6 @@
+package Game.Board;
+
+import Game.Player;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
@@ -61,4 +64,9 @@ public class GameBoard {
         };
     }
 
+    public void removePlayer(Player player) {
+        for (int i=0; i<this.fields.length; i++) {
+            this.fields[i].getGuiField().setCar(player.getPlayer(),false);
+        }
+    }
 }

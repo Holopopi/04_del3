@@ -1,6 +1,6 @@
-import gui_fields.GUI_Field;
+package Game.Board;
+
 import gui_fields.GUI_Start;
-import gui_fields.GUI_Street;
 
 import java.awt.*;
 

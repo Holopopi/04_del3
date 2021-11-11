@@ -1,3 +1,5 @@
+package Game.Board;
+
 import gui_fields.GUI_Field;
 import java.awt.Color;
 
@@ -39,6 +41,8 @@ public abstract class Field {
         this.guiField.setForeGroundColor(foregroundColor);
         return this;
     }
+
+
 
     abstract protected GUI_Field createGUIField();
 

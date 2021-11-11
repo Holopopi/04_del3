@@ -1,14 +1,16 @@
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Jail;
-import gui_fields.GUI_Start;
+package Game.Board;
+
+import Game.Player;
 import gui_fields.GUI_Street;
 
 import java.awt.*;
 
-public class ParkingField extends Field{
+public class HouseField extends Field{
 
-    public ParkingField() {
-        super("Gratis Parkering", "Gratis Parkering", "", new Color(10 ,125,255), Color.black);
+    Player owner;
+
+    public HouseField(String name,String description,String subText,Color color) {
+        super(name, description, subText, color, Color.black);
     }
 
     @Override
