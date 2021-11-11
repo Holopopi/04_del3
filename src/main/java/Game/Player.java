@@ -19,10 +19,18 @@ public class Player {
         this.navn=navn;
         this.player = new GUI_Player(navn,saldo);
     }
+
+    /**
+     * Adds to the player's account and GUI
+     */
     public void saldoOpdatering(int saldoOpdatering){
         this.konto.addSaldo(saldoOpdatering);
+        this.player.setBalance(this.getSaldo());
     }
 
+    /**
+     * Get spillerens GUI spiller objekt
+     */
     public GUI_Player getPlayer(){
         return this.player;
     }
@@ -35,9 +43,16 @@ public class Player {
         return tur;
     }
 
+    /**
+     * Get players name
+     */
     public int getSaldo() {
         return this.konto.getSaldo();
     }
+
+    /**
+     * Get players name
+     */
     public String getNavn(){
         return this.navn;
     }
