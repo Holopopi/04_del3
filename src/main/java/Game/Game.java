@@ -1,5 +1,6 @@
 package Game;// Denne klasse bruges til at lave selve spillet
 
+import Game.Board.Field;
 import Game.Board.GameBoard;
 import gui_fields.GUI_Car;
 import gui_main.GUI;
@@ -81,15 +82,22 @@ public class Game {
         int dice = this.dice.kastTerning();
         this.gui.setDie(dice);
         movePlayer(player,dice);
+        this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
     }
 
     /**
      * Player moves to new field.
      */
-    private void movePlayer(Player player, int dice) {
+    public void movePlayer(Player player, int dice) {
         this.gameboard.removePlayer(player);
         int newLocation=dice+player.getLocationIndex();
         player.setLocationIndex(newLocation);
         this.gameboard.getGuiFields()[player.getLocationIndex()].setCar(player.getPlayer(),true);
     }
+    public void setPlayer(Player player,int indexLocation) {
+        this.gameboard.removePlayer(player);
+        player.setLocationIndex(indexLocation);
+        this.gameboard.getGuiFields()[player.getLocationIndex()].setCar(player.getPlayer(),true);
+    }
+
 }

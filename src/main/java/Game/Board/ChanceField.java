@@ -1,5 +1,7 @@
 package Game.Board;
 
+import Game.Game;
+import Game.Player;
 import gui_fields.GUI_Chance;
 
 import java.awt.*;
@@ -18,5 +20,10 @@ public class ChanceField extends Field{
     @Override
     public GUI_Chance getGuiField() {
         return (GUI_Chance) this.guiField;
+    }
+
+    @Override
+    public void runAction(Player player, Game game) {
+
     }
 }

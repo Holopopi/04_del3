@@ -1,5 +1,7 @@
 package Game.Board;
 
+import Game.Game;
+import Game.Player;
 import gui_fields.GUI_Field;
 import java.awt.Color;
 
@@ -94,5 +96,7 @@ public abstract class Field {
      * Abstrakt getter for feltets GUI felt
      */
     abstract public GUI_Field getGuiField();
+
+    abstract public void runAction(Player player, Game game);
 
 }

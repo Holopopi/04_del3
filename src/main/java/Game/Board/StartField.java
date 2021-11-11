@@ -1,5 +1,7 @@
 package Game.Board;
 
+import Game.Game;
+import Game.Player;
 import gui_fields.GUI_Start;
 
 import java.awt.*;
@@ -20,5 +22,10 @@ public class StartField extends Field{
     @Override
     public GUI_Start getGuiField() {
         return (GUI_Start) this.guiField;
+    }
+
+    @Override
+    public void runAction(Player player, Game game) {
+
     }
 }

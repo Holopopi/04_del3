@@ -1,5 +1,7 @@
 package Game.Board;
 
+import Game.Game;
+import Game.Player;
 import gui_fields.GUI_Jail;
 
 import java.awt.*;
@@ -27,5 +29,12 @@ public class JailField extends Field{
     @Override
     public GUI_Jail getGuiField() {
         return (GUI_Jail) this.guiField;
+    }
+
+    @Override
+    public void runAction(Player player, Game game) {
+        if(visit==false){
+            game.setPlayer(player,6);
+        }
     }
 }
