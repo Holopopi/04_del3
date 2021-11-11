@@ -5,11 +5,11 @@ import Game.Player;
 import gui_fields.GUI_Street;
 
 import java.awt.*;
+import java.util.HashMap;
 
 public class HouseField extends Field{
 
-    Player owner;
-
+    //private Player owner;
     public HouseField(String name,String description,String subText,Color color) {
         super(name, description, subText, color, Color.black);
     }

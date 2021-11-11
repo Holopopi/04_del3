@@ -4,6 +4,7 @@ import Game.Player;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
+import java.util.Arrays;
 
 
 public class GameBoard {
@@ -18,10 +19,14 @@ public class GameBoard {
         return this.fields;
     }
 
+    public String getType() { return fields.getClass().getTypeName();
+    }
+
     public GUI_Field[] getGuiFields(){
         GUI_Field[] fields = new GUI_Field[this.fields.length];
         for (int i=0; i<this.fields.length; i++) {
             fields[i] = this.fields[i].getGuiField();
+
         }
         return fields;
     }

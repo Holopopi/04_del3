@@ -2,6 +2,7 @@ package Game;// Denne klasse bruges til at lave selve spillet
 
 import Game.Board.Field;
 import Game.Board.GameBoard;
+import Game.Board.HouseField;
 import gui_fields.GUI_Car;
 import gui_main.GUI;
 
@@ -10,10 +11,12 @@ import java.awt.*;
 public class Game {
 
     GameBoard gameboard;
+    Ownership ownership = new Ownership();
     GUI gui;
     Player[] players;
     Dice dice;
     int amountOfPlayers;
+    Field houseField;
 
     /**
      * Initializes new game
@@ -72,7 +75,6 @@ public class Game {
 
 
     }
-
     /**
      * Player takes a turn.
      */
@@ -83,6 +85,16 @@ public class Game {
         this.gui.setDie(dice);
         movePlayer(player,dice);
         this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
+
+        System.out.print(gameboard.getFields()[player.getLocationIndex()]);
+        if(ownership.CheckIfBought(player.getLocationIndex()) && gameboard.getType()[player.getLocationIndex()] == houseField){
+            this.gui.getUserButtonPressed("Bygningen er købt, du skal betale noget i husleje");
+            ownership.PayRent(player.getLocationIndex(), player);
+        } else {//if(gameboard.getFields()){
+            if(this.gui.getUserLeftButtonPressed("Denne bygning er ikke købt, vil du købe den?", "Ja", "Ellers tak amigo")){
+                ownership.BuyBuilding(player.getLocationIndex(), player);
+            }
+        }
     }
 
     /**

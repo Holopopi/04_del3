@@ -82,7 +82,7 @@ public abstract class Field {
     /**
      * Getter for feltets sub tekst
      */
-    protected String getSubText(){
+    public String getSubText(){
         return this.guiField.getSubText();
     }
 
