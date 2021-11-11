@@ -20,6 +20,7 @@ public abstract class Field {
         this.setBackgroundColor(backgroundColor);
         this.setForegroundColor(foregroundColor);
     }
+
     protected Field setTitle(String title){
         this.guiField.setTitle(title);
         return this;
@@ -42,7 +43,15 @@ public abstract class Field {
         return this;
     }
 
-
+    protected String getTitle(){
+        return this.guiField.getTitle();
+    }
+    protected String getDescription(){
+        return this.guiField.getDescription();
+    }
+    protected String getSubText(){
+        return this.guiField.getSubText();
+    }
 
     abstract protected GUI_Field createGUIField();
 
