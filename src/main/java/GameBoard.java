@@ -61,4 +61,9 @@ public class GameBoard {
         };
     }
 
+    public void removePlayer(Spiller player) {
+        for (int i=0; i<this.fields.length; i++) {
+            this.fields[i].getGuiField().setCar(player.getPlayer(),false);
+        }
+    }
 }

@@ -3,10 +3,11 @@
 import gui_fields.GUI_Player;
 
 public class Spiller {
-    Konto konto;
-    String navn;
-    Boolean tur;
-    GUI_Player player;
+    private Konto konto;
+    private String navn;
+    private Boolean tur;
+    private GUI_Player player;
+    private int locationIndex;
 
     public Spiller(int saldo,String navn){
         if (saldo<0){
@@ -26,7 +27,6 @@ public class Spiller {
         return this.player;
     }
 
-
     public void setTur(Boolean tur) {
         this.tur = tur;
     }
@@ -42,4 +42,29 @@ public class Spiller {
         return this.navn;
     }
 
+
+    /**
+     * Returns the players location index
+     */
+    public int getLocationIndex() {
+        return locationIndex;
+    }
+
+    /**
+     * Used if player is manually placed somewhere and needs to collect Start money.
+     */
+    public void collectStart(){
+        this.saldoOpdatering(2);
+    }
+
+    /**
+     * Set the location index for player. If over 24(the player has made a lap), the player will receive
+     * start money and location index resets to avoid index out of bounds.
+     */
+    public void setLocationIndex(int location) {
+        if (location>24){
+            this.saldoOpdatering(2);
+        }
+        this.locationIndex = location%24;
+    }
 }
