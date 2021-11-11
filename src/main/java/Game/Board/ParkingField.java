@@ -1,5 +1,7 @@
 package Game.Board;
 
+import Game.Game;
+import Game.Player;
 import gui_fields.GUI_Street;
 
 import java.awt.*;
@@ -18,5 +20,10 @@ public class ParkingField extends Field{
     @Override
     public GUI_Street getGuiField() {
         return (GUI_Street) this.guiField;
+    }
+
+    @Override
+    public void runAction(Player player, Game game) {
+
     }
 }
