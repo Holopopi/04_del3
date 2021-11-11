@@ -13,7 +13,6 @@ public class HouseField extends Field{
         super(name, description, subText, color, Color.black);
     }
 
-
     @Override
     protected GUI_Street createGUIField(){
         return new GUI_Street();

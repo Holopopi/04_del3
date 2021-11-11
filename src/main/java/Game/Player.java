@@ -63,7 +63,7 @@ public class Player {
      */
     public void setLocationIndex(int location) {
         if (location>24){
-            collectStart();
+            this.collectStart();
         }
         this.locationIndex = location%24;
     }
