@@ -11,7 +11,6 @@ import java.awt.*;
 public class Game {
 
     GameBoard gameboard;
-    Ownership ownership = new Ownership();
     GUI gui;
     Player[] players;
     Dice dice;
