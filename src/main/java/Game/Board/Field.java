@@ -4,9 +4,9 @@ import Game.Game;
 import Game.Player;
 import gui_fields.GUI_Field;
 import java.awt.Color;
+import java.util.HashMap;
 
 public abstract class Field {
-
 
     private String title;
     private String description;

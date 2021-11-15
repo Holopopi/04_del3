@@ -7,27 +7,26 @@ import java.util.HashMap;
 //Psuedokode
 public class Ownership {
 
-    public Ownership(){
+    /*public Ownership(){
     }
 
-    private HashMap<Integer, Player> playerOwnership = new HashMap<Integer, Player>();
+    private HashMap<HouseField, Player> playerOwnership = new HashMap<HouseField, Player>();
     private GameBoard gameBoard = new GameBoard();
     private int currentFieldValue;
-    private Field houseField;
 
-    public void PayRent(int field, Player rentPayer){
+    public void PayRent(Field field, Player rentPayer){
         Player owner = playerOwnership.get(field);
-        currentFieldValue = Integer.parseInt(gameBoard.getFields()[field].getSubText());
+        currentFieldValue = Integer.parseInt(field.getSubText());
         owner.saldoOpdatering(currentFieldValue);
         rentPayer.saldoOpdatering(-(currentFieldValue));
     }
-    public void BuyBuilding(int field, Player buyer){
+    public void BuyBuilding(Field field, Player buyer){
         playerOwnership.put(field, buyer);
-        currentFieldValue = Integer.parseInt(gameBoard.getFields()[field].getSubText());
+        currentFieldValue = Integer.parseInt(field.getSubText());
         buyer.saldoOpdatering(-(currentFieldValue));
     }
-    public boolean CheckIfBought(int field){
+    public boolean CheckIfBought(Field field){
         boolean bought = playerOwnership.containsKey(field);
         return bought;
-    }
+    }*/
 }

@@ -1,13 +1,16 @@
 package Game.Board;
-
+import Game.Game;
 import Game.Player;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
 import java.util.Arrays;
+import java.util.HashMap;
 
 
 public class GameBoard {
+    protected HashMap<HouseField, Player> ownership = new HashMap<HouseField, Player>();
+
     private Field[] fields;
 
     public GameBoard()
@@ -68,10 +71,31 @@ public class GameBoard {
 
         };
     }
-
+    private int currentFieldValue;
     public void removePlayer(Player player) {
         for (int i=0; i<this.fields.length; i++) {
             this.fields[i].getGuiField().setCar(player.getPlayer(),false);
         }
+    }
+    public boolean isBought(HouseField houseField){
+        boolean bought = ownership.containsKey(houseField);
+        return bought;
+    }
+    public void BuyBuilding(HouseField field, Player buyer){
+        ownership.put(field, buyer);
+        currentFieldValue = Integer.parseInt(field.getSubText());
+        buyer.saldoOpdatering(-(currentFieldValue));
+    }
+    public void PayRent(HouseField field, Player rentPayer, Game game){
+            Player owner = ownership.get(field);
+            if(owner!=rentPayer) {
+                currentFieldValue = Integer.parseInt(field.getSubText());
+                String str = "This building is owned. You have to pay " + currentFieldValue + "M to "+ owner.getNavn();
+                game.getGui().getUserButtonPressed(str, "Okay");
+                owner.saldoOpdatering(currentFieldValue);
+                rentPayer.saldoOpdatering(-(currentFieldValue));
+            } else{
+                return;
+            }
     }
 }
