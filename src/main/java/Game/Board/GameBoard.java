@@ -4,12 +4,11 @@ import Game.Player;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
-import java.util.Arrays;
 import java.util.HashMap;
 
 
 public class GameBoard {
-    protected HashMap<HouseField, Player> ownership = new HashMap<HouseField, Player>();
+    protected HashMap<HouseField, Player> ownership = new HashMap<>();
 
     private Field[] fields;
 
@@ -20,9 +19,6 @@ public class GameBoard {
 
     public Field[] getFields() {
         return this.fields;
-    }
-
-    public String getType() { return fields.getClass().getTypeName();
     }
 
     public GUI_Field[] getGuiFields(){
@@ -78,8 +74,7 @@ public class GameBoard {
         }
     }
     public boolean isBought(HouseField houseField){
-        boolean bought = ownership.containsKey(houseField);
-        return bought;
+        return ownership.containsKey(houseField);
     }
     public void BuyBuilding(HouseField field, Player buyer){
         ownership.put(field, buyer);
@@ -94,8 +89,6 @@ public class GameBoard {
                 game.getGui().getUserButtonPressed(str, "Okay");
                 owner.saldoOpdatering(currentFieldValue);
                 rentPayer.saldoOpdatering(-(currentFieldValue));
-            } else{
-                return;
             }
     }
 }
