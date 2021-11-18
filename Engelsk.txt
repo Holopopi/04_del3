@@ -1,0 +1,10 @@
+knap_1_tekst
+Tryk på mig
+knap_2_tekst
+hej
+brugervelkomst
+velkommen til mit spil
+ugyldigtTræk
+Dette træk er ugyldigt. Vælg noget andet
+skiftsprogknap
+skift sprog
