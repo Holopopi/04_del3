@@ -34,15 +34,7 @@ public class HouseField extends Field{
             gameBoard.PayRent(this,player, game);
             System.out.println("Betalt husleje");
         } else{
-            System.out.println(player);
-            if(game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No")){
-                gameBoard.BuyBuilding(this, player);
-            } else{
-                System.out.println("Det virker - Betaler ikke for bygning");
-            }
-
+            gameBoard.BuyBuilding(this, player, game);
         }
-
-
     }
 }

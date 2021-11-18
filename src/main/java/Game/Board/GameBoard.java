@@ -76,10 +76,17 @@ public class GameBoard {
     public boolean isBought(HouseField houseField){
         return ownership.containsKey(houseField);
     }
-    public void BuyBuilding(HouseField field, Player buyer){
-        ownership.put(field, buyer);
+
+
+    public void BuyBuilding(HouseField field, Player buyer, Game game){
         currentFieldValue = Integer.parseInt(field.getSubText());
-        buyer.saldoOpdatering(-(currentFieldValue));
+        if(currentFieldValue < buyer.getSaldo()) {
+            game.getGui().getUserButtonPressed("This building isn't bought. You have enough money to buy it!", "Buy");
+            ownership.put(field, buyer);
+            buyer.saldoOpdatering(-(currentFieldValue));
+        }else {
+            game.getGui().getUserButtonPressed("This building isn't bought. You don't have enough money to buy it", "Continue");
+        }
     }
     public void PayRent(HouseField field, Player rentPayer, Game game){
             Player owner = ownership.get(field);

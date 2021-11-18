@@ -73,6 +73,11 @@ public class Game {
 
 
     }
+    public void restartGame(){
+        newGame();
+        playGame();
+        return;
+    }
     /**
      * Player takes a turn.
      */
@@ -83,6 +88,13 @@ public class Game {
         this.gui.setDie(dice);
         movePlayer(player,dice);
         this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
+        if(player.getSaldo() <= 0){
+            if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yessirrr", "Noo")){
+                restartGame();
+            } else{
+                System.exit(0);
+            }
+        }
     }
 
     /**
@@ -105,4 +117,5 @@ public class Game {
     public GameBoard getGameBoard(){
         return this.gameboard;
     }
+
 }
