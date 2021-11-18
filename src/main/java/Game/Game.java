@@ -2,6 +2,7 @@ package Game;// Denne klasse bruges til at lave selve spillet
 
 import Game.Board.Field;
 import Game.Board.GameBoard;
+import Game.Board.HouseField;
 import gui_fields.GUI_Car;
 import gui_main.GUI;
 
@@ -72,7 +73,6 @@ public class Game {
 
 
     }
-
     /**
      * Player takes a turn.
      */
@@ -99,5 +99,10 @@ public class Game {
         player.setLocationIndex(indexLocation);
         this.gameboard.getGuiFields()[player.getLocationIndex()].setCar(player.getPlayer(),true);
     }
-
+    public GUI getGui(){
+        return this.gui;
+    }
+    public GameBoard getGameBoard(){
+        return this.gameboard;
+    }
 }

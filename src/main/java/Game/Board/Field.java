@@ -4,9 +4,9 @@ import Game.Game;
 import Game.Player;
 import gui_fields.GUI_Field;
 import java.awt.Color;
+import java.util.HashMap;
 
 public abstract class Field {
-
 
     private String title;
     private String description;
@@ -82,7 +82,7 @@ public abstract class Field {
     /**
      * Getter for feltets sub tekst
      */
-    protected String getSubText(){
+    public String getSubText(){
         return this.guiField.getSubText();
     }
 
