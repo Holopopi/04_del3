@@ -29,7 +29,7 @@ public class PlayerTest {
     public void negativSaldoOpdatering(){
         GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
         Player player = new Player(0,"navn",car);
-        Player.saldoOpdatering(-1000);
+        player.saldoOpdatering(-1000);
         int saldo = player.getSaldo();
         int expectedResult = 0;
         assertEquals(expectedResult,saldo);
@@ -39,7 +39,7 @@ public class PlayerTest {
     public void saldoOpdatering(){
         GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
         Player player = new Player(0,"navn",car);
-        Player.saldoOpdatering(500);
+        player.saldoOpdatering(500);
         int saldo = player.getSaldo();
         int expectedResult = 500;
         assertEquals(expectedResult,saldo);
