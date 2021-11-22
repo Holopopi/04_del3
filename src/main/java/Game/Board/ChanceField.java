@@ -60,7 +60,7 @@ public class ChanceField extends Field{
             }
                 ChanceCardNumber++;
                 break;
-            case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen"); game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen");
+            case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free"); game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen");
             /*if (game.getGui().displayChanceCard();{
                 player.setLocationIndex(10);
                 ChandeCardNumber++;
@@ -74,10 +74,13 @@ public class ChanceField extends Field{
 
             case 4:game.getGui().displayChanceCard("Move one or take a new chance card ");game.getGui().getUserButtonPressed("","Move one", "Take another chance card" + "");
 
+
                 break;
-            case 5: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+            case 5:game.getGui().displayChanceCard("You have eaten to much candy pay wm to the bank");
+            player.saldoOpdatering(-2);
+
                 break;
-            case 6: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+            case 6: game.getGui().displayChanceCard("Move to either Skateparken, Swimmingpoolen, Bowlinghallen or the zoo and if the field isn't owned you get it for free"); game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen","Bowlinghallen","Zoo");
                 break;
             case 7: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
                 break;
