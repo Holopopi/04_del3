@@ -7,7 +7,7 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-
+    int ChanceCardNumber =1;
     public ChanceField() {
         super("Chance", "Træk et chancekort", "", Color.lightGray, Color.black);
     }
@@ -25,13 +25,17 @@ public class ChanceField extends Field{
     @Override
     public void runAction(Player player, Game game) {
         GameBoard gameBoard = game.getGameBoard();
-        int ChanceCardNumber =1;
+
 
 
         switch (ChanceCardNumber){
-            case 1: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+            case 1: game.getGui().showMessage("Move to start and recive 2M");
+            player.setLocationIndex(0);
+            player.saldoOpdatering(2);
+            ChanceCardNumber++;
             break;
-            case 2: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+            case 2:
+            switch (game.getGui().getUserSelection())
                 break;
             case 3: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
                 break;
