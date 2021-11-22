@@ -35,9 +35,31 @@ public class ChanceField extends Field{
             ChanceCardNumber++;
             break;
             case 2:
-            switch (game.getGui().getUserSelection())
+            switch (game.getGui().getUserSelection("Move between one to five fields","1","2","3","4","5")){
+                case"1":
+                    game.getGui().showMessage("You move one field");
+                    game.movePlayer(player,1);
+                    break;
+                case "2":
+                    game.getGui().showMessage("You move two fields");
+                    game.movePlayer(player,2);
+                    break;
+                case "3":
+                    game.getGui().showMessage("You move three fields");
+                    game.movePlayer(player,3);
+                    break;
+                case "4":
+                    game.getGui().showMessage("You move four fields");
+                    game.movePlayer(player,4);
+                    break;
+                case "5":
+                    game.getGui().showMessage("You move five fields");
+                    game.movePlayer(player,5);
+                    break;
+            }
                 break;
             case 3: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+
                 break;
             case 4: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
                 break;
