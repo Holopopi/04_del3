@@ -7,7 +7,7 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    int ChanceCardNumber =1;
+    int ChanceCardNumber =2;
     public ChanceField() {
         super("Chance", "Træk et chancekort", "", Color.lightGray, Color.black);
     }
@@ -29,13 +29,14 @@ public class ChanceField extends Field{
 
 
         switch (ChanceCardNumber){
-            case 1: game.getGui().showMessage("Move to start and recive 2M");
+            case 1: game.getGui().displayChanceCard("Move to start and recive 2M");
             player.setLocationIndex(0);
             player.saldoOpdatering(2);
             ChanceCardNumber++;
             break;
             case 2:
-            switch (game.getGui().getUserSelection("Move between one to five fields","1","2","3","4","5")){
+                game.getGui().displayChanceCard("Move between one to five fields");
+            switch (game.getGui().getUserButtonPressed("","1","2","3","4","5")){
                 case"1":
                     game.getGui().showMessage("You move one field");
                     game.movePlayer(player,1);
@@ -57,11 +58,22 @@ public class ChanceField extends Field{
                     game.movePlayer(player,5);
                     break;
             }
+                ChanceCardNumber++;
                 break;
-            case 3: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+            case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen"); game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen");
+            /*if (game.getGui().displayChanceCard();{
+                player.setLocationIndex(10);
+                ChandeCardNumber++;
+                break;
+            }else
+                player.setLocationIndex(11);
+                ChanceCardNumber++;
+             */
+                break;
 
-                break;
-            case 4: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+
+            case 4:game.getGui().displayChanceCard("Move one or take a new chance card ");game.getGui().getUserButtonPressed("","Move one", "Take another chance card" + "");
+
                 break;
             case 5: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
                 break;
