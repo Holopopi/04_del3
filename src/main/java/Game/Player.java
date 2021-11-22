@@ -91,7 +91,7 @@ public class Player {
         this.locationIndex = location%24;
     }
     public void setGetOutOfJail(int getOutOfJail){
-        getOutOfJail=getOutOfJail+1;
+        getOutOfJail=getOutOfJail;
     }
     private int getGetOutOfJail(){
         return getOutOfJail;
