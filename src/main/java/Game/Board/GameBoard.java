@@ -98,4 +98,14 @@ public class GameBoard {
                 rentPayer.saldoOpdatering(-(currentFieldValue));
             }
     }
+    public void chanceFreeBuilding(HouseField field, Player buyer, Game game){
+        currentFieldValue = Integer.parseInt(field.getSubText());
+        if(isBought(field)) {
+            game.getGui().getUserButtonPressed("This building is bought. You have to pay rent","Pay rent");
+            PayRent(field, buyer, game);
+        }else {
+            ownership.put(field, buyer);
+            game.getGui().getUserButtonPressed("This building isn't bought. It's yours for free!", "Continue");
+        }
+    }
 }
