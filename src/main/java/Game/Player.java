@@ -11,6 +11,8 @@ public class Player {
     private Boolean tur;
     private GUI_Player player;
     private int locationIndex;
+    public int getOutOfJail;
+
 
     private GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
 
@@ -87,5 +89,11 @@ public class Player {
             this.collectStart();
         }
         this.locationIndex = location%24;
+    }
+    public void setGetOutOfJail(int getOutOfJail){
+        getOutOfJail=getOutOfJail+1;
+    }
+    private int getGetOutOfJail(){
+        return getOutOfJail;
     }
 }

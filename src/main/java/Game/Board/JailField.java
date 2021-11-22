@@ -4,6 +4,7 @@ import Game.Game;
 import Game.Player;
 import gui_fields.GUI_Jail;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class JailField extends Field{
@@ -34,6 +35,16 @@ public class JailField extends Field{
     @Override
     public void runAction(Player player, Game game) {
         if(visit==false){
+            if (player.getOutOfJail>0) {
+                game.getGui().getUserLeftButtonPressed("Do you want to use your get out of jail free card", "yes", "no")
+                {
+                    if (true) {
+
+                    } else
+                        game.setPlayer(player, 6);
+
+                }
+            }else
             game.setPlayer(player,6);
         }
     }

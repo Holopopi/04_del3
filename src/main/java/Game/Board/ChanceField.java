@@ -78,13 +78,13 @@ public class ChanceField extends Field{
                 break;
             case 5:game.getGui().displayChanceCard("You have eaten to much candy pay wm to the bank");
             player.saldoOpdatering(-2);
-
                 break;
             case 6: game.getGui().displayChanceCard("Move to either Skateparken, Swimmingpoolen, Bowlinghallen or the zoo and if the field isn't owned you get it for free"); game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen","Bowlinghallen","Zoo");
                 break;
-            case 7: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+            case 7: game.getGui().displayChanceCard("Move to either Slikbutikken or Iskiosken  and if the field isn't owned you get it for free"); game.getGui().getUserButtonPressed("", "Slikbutikken","Iskiosken");
                 break;
-            case 8: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
+            case 8: game.getGui().displayChanceCard("get a get out of jail card");
+            player.setGetOutOfJail(player.getOutOfJail++);
                 break;
             case 9: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
                 break;
