@@ -24,6 +24,9 @@ public class ChanceField extends Field{
 
     @Override
     public void runAction(Player player, Game game) {
+        GameBoard gameBoard = game.getGameBoard();
+        //HouseField field = gameBoard.getFields()[player.getLocationIndex()];
 
+        //gameBoard.chanceFreeBuilding(field, player, game);
     }
 }

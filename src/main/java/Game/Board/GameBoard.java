@@ -30,9 +30,6 @@ public class GameBoard {
         return fields;
     }
 
-
-
-
     private Field[] createFields() {
         return new Field[]{
                 new StartField(),

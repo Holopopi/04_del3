@@ -29,7 +29,7 @@ public class HouseField extends Field{
     @Override
     public void runAction(Player player, Game game) {
         GameBoard gameBoard = game.getGameBoard();
-
+        System.out.print(this);
         if(gameBoard.isBought(this)){
             gameBoard.PayRent(this,player, game);
             System.out.println("Betalt husleje");
