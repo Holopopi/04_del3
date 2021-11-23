@@ -7,9 +7,8 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    int ChanceCardNumber =2;
+    int ChanceCardNumber =1;
     boolean moveOrTakeCard;
-    boolean Swimmingpool;
 
 
     public ChanceField() {
@@ -32,72 +31,72 @@ public class ChanceField extends Field{
         GameBoard gameBoard = game.getGameBoard();
 
 
-        switch (ChanceCardNumber){
-            case 1: game.getGui().displayChanceCard("Move to start and recive 2M");
-            player.setLocationIndex(0);
-            player.saldoOpdatering(2);
-            ChanceCardNumber++;
-            break;
+        switch (ChanceCardNumber) {
+            case 1:
+                game.getGui().displayChanceCard("Move to start and recive 2M");
+                game.setPlayer(player,0);
+                player.saldoOpdatering(2);
+                ChanceCardNumber++;
+                break;
             case 2:
                 game.getGui().displayChanceCard("Move between one to five fields");
-            switch (game.getGui().getUserButtonPressed("","1","2","3","4","5")){
-                case"1":
-                    game.getGui().showMessage("You move one field");
-                    game.movePlayer(player,1);
-                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
-                    break;
-                case "2":
-                    game.getGui().showMessage("You move two fields");
-                    game.movePlayer(player,2);
-                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
-                    break;
-                case "3":
-                    game.getGui().showMessage("You move three fields");
-                    game.movePlayer(player,3);
-                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
-                    break;
-                case "4":
-                    game.getGui().showMessage("You move four fields");
-                    game.movePlayer(player,4);
-                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
-                    break;
-                case "5":
-                    game.getGui().showMessage("You move five fields");
-                    game.movePlayer(player,5);
-                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
-                    break;
-            }
-                //ChanceCardNumber++;
+                switch (game.getGui().getUserButtonPressed("", "1", "2", "3", "4", "5")) {
+                    case "1":
+                        game.getGui().showMessage("You move one field");
+                        game.movePlayer(player, 1);
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                        break;
+                    case "2":
+                        game.getGui().showMessage("You move two fields");
+                        game.movePlayer(player, 2);
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                        break;
+                    case "3":
+                        game.getGui().showMessage("You move three fields");
+                        game.movePlayer(player, 3);
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                        break;
+                    case "4":
+                        game.getGui().showMessage("You move four fields");
+                        game.movePlayer(player, 4);
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                        break;
+                    case "5":
+                        game.getGui().showMessage("You move five fields");
+                        game.movePlayer(player, 5);
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                        break;
+                }
+                ChanceCardNumber++;
                 break;
-            case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free");
-            switch (game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen")) {
-                case "Skaterparken":
-                    player.setLocationIndex(10);
-
-                    ChanceCardNumber++;
-                    break;
-                case"Swimmingpoolen" :
-                    player.setLocationIndex(11);
-                    ChanceCardNumber++;
-                    break;
-            }
-
-                break;
-            }
-
-
-
-
-            case 4:game.getGui().displayChanceCard("Move one or take a new chance card ");
-            moveOrTakeCard = game.getGui().getUserLeftButtonPressed("","Move one", "Take another chance card" + "");
-            if (moveOrTakeCard)
-                game.movePlayer(player,1);
-            break;
-            /*if (!moveOrTakeCard)
+            case 3:
+                game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free");
+                switch (game.getGui().getUserButtonPressed("", "Skaterparken", "Swimmingpoolen")) {
+                    case "Skaterparken":
+                        player.setLocationIndex(10);
+                        ChanceCardNumber++;
+                        break;
+                    case "Swimmingpoolen":
+                        player.setLocationIndex(11);
+                        ChanceCardNumber++;
+                        break;
+                }
 
                 break;
+        case 4:
+        game.getGui().displayChanceCard("Move one or take a new chance card ");
+        moveOrTakeCard = game.getGui().getUserLeftButtonPressed("", "Move one", "Take another chance card" + "");
+        if (moveOrTakeCard){
+            game.movePlayer(player, 1);
+            gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+        }
+            else if (!moveOrTakeCard) {
+            gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+        }
 
-             */
+                break;
+
+
 
 
 
