@@ -72,12 +72,12 @@ public class ChanceField extends Field{
                 game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Skaterparken", "Swimmingpoolen")) {
                     case "Skaterparken":
-                        player.setLocationIndex(10);
+                        game.setPlayer(player, 10);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
                     case "Swimmingpoolen":
-                        player.setLocationIndex(11);
+                        game.setPlayer(player, 11);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
@@ -106,24 +106,24 @@ public class ChanceField extends Field{
                 game.getGui().displayChanceCard("Move to either Skateparken, Swimmingpoolen, Bowlinghallen or the zoo and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Skaterparken", "Swimmingpoolen", "Bowlinghallen", "Zoo")) {
                     case "Skaterparken":
-                        player.setLocationIndex(10);
+                        game.setPlayer(player, 10);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         ChanceCardNumber++;
                         break;
                     case "Swimmingpoolen":
-                        player.setLocationIndex(11);
+                        game.setPlayer(player, 11);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         ChanceCardNumber++;
                         break;
                     case"Bowlinghallen":
-                        player.setLocationIndex(19);
+                        game.setPlayer(player, 19);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         ChanceCardNumber++;
                     case "Zoo":
-                        player.setLocationIndex(20);
+                        game.setPlayer(player, 20);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         ChanceCardNumber++;
