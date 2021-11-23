@@ -3,7 +3,6 @@ package Game.Board;
 import Game.Game;
 import Game.Player;
 import gui_fields.GUI_Street;
-import Game.Board.GameBoard;
 
 import java.awt.*;
 
@@ -29,9 +28,9 @@ public class HouseField extends Field{
     @Override
     public void runAction(Player player, Game game) {
         GameBoard gameBoard = game.getGameBoard();
-        System.out.print(this);
+        System.out.print(gameBoard.freeBuilding);
         if(gameBoard.freeBuilding){
-
+            gameBoard.chanceFreeBuilding(this, player, game);
         } else{
             if (gameBoard.isBought(this)) {
                 gameBoard.PayRent(this, player, game);
@@ -40,5 +39,6 @@ public class HouseField extends Field{
                 gameBoard.BuyBuilding(this, player, game);
             }
         }
+        gameBoard.freeBuilding = false;
     }
 }

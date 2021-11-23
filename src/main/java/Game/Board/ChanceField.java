@@ -7,6 +7,8 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
+    int ChanceCardNumber=3;
+    boolean moveOrTakeCard;
 
     public ChanceField() {
         super("Chance", "Træk et chancekort", "", Color.lightGray, Color.black);
@@ -57,23 +59,26 @@ public class ChanceField extends Field{
                     case "5":
                         game.getGui().showMessage("You move five fields");
                         game.movePlayer(player,5);
-                        gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
+
                         break;
                 }
-                //ChanceCardNumber++;
+                ChanceCardNumber++;
                 break;
             case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen")) {
                     case "Skaterparken":
-                        player.setLocationIndex(10);
-
+                        game.setPlayer(player, 10);
+                        gameBoard.freeBuilding = true;
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
                         ChanceCardNumber++;
                         break;
                     case"Swimmingpoolen" :
-                        player.setLocationIndex(11);
+                        game.setPlayer(player, 11);
+                        gameBoard.freeBuilding = true;
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
                         ChanceCardNumber++;
                         break;
-                }
+                }/*
             case 4:game.getGui().displayChanceCard("Move one or take a new chance card ");
                 moveOrTakeCard = game.getGui().getUserLeftButtonPressed("","Move one", "Take another chance card" + "");
                 if (moveOrTakeCard)
@@ -88,7 +93,6 @@ public class ChanceField extends Field{
             case 7: game.getGui().displayChanceCard("Move to either Slikbutikken or Iskiosken  and if the field isn't owned you get it for free"); game.getGui().getUserButtonPressed("", "Slikbutikken","Iskiosken");
                 break;
             case 8: game.getGui().displayChanceCard("get a get out of jail card");
-                player.setGetOutOfJail(player.getOutOfJail++);
                 //ChanceCardNumber++;
                 break;
             case 9: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
@@ -103,7 +107,7 @@ public class ChanceField extends Field{
                 break;
             case 14: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
                 break;
-
+                */
         }
     }
 }
