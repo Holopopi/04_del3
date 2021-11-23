@@ -35,7 +35,7 @@ public class ChanceField extends Field{
             case 1:
                 game.getGui().displayChanceCard("Move to start and recive 2M");
                 game.setPlayer(player,0);
-                player.saldoOpdatering(2);
+                gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                 ChanceCardNumber++;
                 break;
             case 2:
@@ -81,7 +81,6 @@ public class ChanceField extends Field{
                         ChanceCardNumber++;
                         break;
                 }
-
                 break;
         case 4:
         game.getGui().displayChanceCard("Move one or take a new chance card ");
