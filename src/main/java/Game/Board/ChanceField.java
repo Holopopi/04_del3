@@ -9,6 +9,7 @@ import java.awt.*;
 public class ChanceField extends Field{
     int ChanceCardNumber =2;
     boolean moveOrTakeCard;
+    boolean Swimmingpool;
 
 
     public ChanceField() {
@@ -20,6 +21,7 @@ public class ChanceField extends Field{
         return new GUI_Chance();
     }
 
+
     @Override
     public GUI_Chance getGuiField() {
         return (GUI_Chance) this.guiField;
@@ -28,6 +30,7 @@ public class ChanceField extends Field{
     @Override
     public void runAction(Player player, Game game) {
         GameBoard gameBoard = game.getGameBoard();
+
 
         switch (ChanceCardNumber){
             case 1: game.getGui().displayChanceCard("Move to start and recive 2M");
@@ -41,70 +44,48 @@ public class ChanceField extends Field{
                 case"1":
                     game.getGui().showMessage("You move one field");
                     game.movePlayer(player,1);
-                    if(gameBoard.isBought(this)){
-                        gameBoard.PayRent(this,player, game);
-                        System.out.println("Betalt husleje");
-                    } else {
-                        gameBoard.BuyBuilding(this, player, game);
-                        break;
-                    }
+                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
+                    break;
                 case "2":
                     game.getGui().showMessage("You move two fields");
                     game.movePlayer(player,2);
-                    if(gameBoard.isBought(this)){
-                        gameBoard.PayRent(this,player, game);
-                        System.out.println("Betalt husleje");
-                    } else {
-                        gameBoard.BuyBuilding(this, player, game);
-                        break;
-                    }
+                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
                     break;
                 case "3":
                     game.getGui().showMessage("You move three fields");
                     game.movePlayer(player,3);
-                    if(gameBoard.isBought(this)){
-                        gameBoard.PayRent(this,player, game);
-                        System.out.println("Betalt husleje");
-                    } else {
-                        gameBoard.BuyBuilding(this, player, game);
-                        break;
-                    }
+                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
                     break;
                 case "4":
                     game.getGui().showMessage("You move four fields");
                     game.movePlayer(player,4);
-                    if(gameBoard.isBought(this)){
-                        gameBoard.PayRent(this,player, game);
-                        System.out.println("Betalt husleje");
-                    } else {
-                        gameBoard.BuyBuilding(this, player, game);
-                        break;
-                    }
+                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
                     break;
                 case "5":
                     game.getGui().showMessage("You move five fields");
                     game.movePlayer(player,5);
-                    if(gameBoard.isBought(this)){
-                        gameBoard.PayRent(this,player, game);
-                        System.out.println("Betalt husleje");
-                    } else {
-                        gameBoard.BuyBuilding(this, player, game);
-                        break;
-                    }
+                    gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
                     break;
             }
                 //ChanceCardNumber++;
                 break;
-            case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free"); game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen");
-            /*if (game.getGui().displayChanceCard();{
-                player.setLocationIndex(10);
-                ChanceCardNumber++;
+            case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free");
+            switch (game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen")) {
+                case "Skaterparken":
+                    player.setLocationIndex(10);
+
+                    ChanceCardNumber++;
+                    break;
+                case"Swimmingpoolen" :
+                    player.setLocationIndex(11);
+                    ChanceCardNumber++;
+                    break;
+            }
+
                 break;
-            }else
-                player.setLocationIndex(11);
-                ChanceCardNumber++;
-             */
-                break;
+            }
+
+
 
 
             case 4:game.getGui().displayChanceCard("Move one or take a new chance card ");
