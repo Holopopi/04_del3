@@ -150,5 +150,6 @@ public class ChanceField extends Field{
 
         }
 
+        //gameBoard.chanceFreeBuilding(field, player, game);
     }
 }
