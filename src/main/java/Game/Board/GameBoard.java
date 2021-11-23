@@ -12,6 +12,7 @@ public class GameBoard {
 
     private Field[] fields;
 
+
     public GameBoard()
     {
         this.fields = this.createFields();
@@ -76,6 +77,10 @@ public class GameBoard {
     public boolean isBought(HouseField houseField){
         return ownership.containsKey(houseField);
     }
+    public boolean isBought (ChanceField houseField){return ownership.containsKey(houseField);}
+    public void BuyBuilding(ChanceField field, Player buyer, Game game){
+
+    }
 
 
     public void BuyBuilding(HouseField field, Player buyer, Game game){
@@ -87,6 +92,9 @@ public class GameBoard {
         }else {
             game.getGui().getUserButtonPressed("This building isn't bought. You don't have enough money to buy it", "Continue");
         }
+    }
+    public void PayRent(ChanceField field, Player rentPayer, Game game){
+        Player owner = ownership.get(field);
     }
     public void PayRent(HouseField field, Player rentPayer, Game game){
             Player owner = ownership.get(field);

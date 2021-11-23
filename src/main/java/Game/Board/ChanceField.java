@@ -7,8 +7,10 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    int ChanceCardNumber =4;
+    int ChanceCardNumber =2;
     boolean moveOrTakeCard;
+
+
     public ChanceField() {
         super("Chance", "Træk et chancekort", "", Color.lightGray, Color.black);
     }
@@ -27,8 +29,6 @@ public class ChanceField extends Field{
     public void runAction(Player player, Game game) {
         GameBoard gameBoard = game.getGameBoard();
 
-
-
         switch (ChanceCardNumber){
             case 1: game.getGui().displayChanceCard("Move to start and recive 2M");
             player.setLocationIndex(0);
@@ -41,30 +41,64 @@ public class ChanceField extends Field{
                 case"1":
                     game.getGui().showMessage("You move one field");
                     game.movePlayer(player,1);
-                    break;
+                    if(gameBoard.isBought(this)){
+                        gameBoard.PayRent(this,player, game);
+                        System.out.println("Betalt husleje");
+                    } else {
+                        gameBoard.BuyBuilding(this, player, game);
+                        break;
+                    }
                 case "2":
                     game.getGui().showMessage("You move two fields");
                     game.movePlayer(player,2);
+                    if(gameBoard.isBought(this)){
+                        gameBoard.PayRent(this,player, game);
+                        System.out.println("Betalt husleje");
+                    } else {
+                        gameBoard.BuyBuilding(this, player, game);
+                        break;
+                    }
                     break;
                 case "3":
                     game.getGui().showMessage("You move three fields");
                     game.movePlayer(player,3);
+                    if(gameBoard.isBought(this)){
+                        gameBoard.PayRent(this,player, game);
+                        System.out.println("Betalt husleje");
+                    } else {
+                        gameBoard.BuyBuilding(this, player, game);
+                        break;
+                    }
                     break;
                 case "4":
                     game.getGui().showMessage("You move four fields");
                     game.movePlayer(player,4);
+                    if(gameBoard.isBought(this)){
+                        gameBoard.PayRent(this,player, game);
+                        System.out.println("Betalt husleje");
+                    } else {
+                        gameBoard.BuyBuilding(this, player, game);
+                        break;
+                    }
                     break;
                 case "5":
                     game.getGui().showMessage("You move five fields");
                     game.movePlayer(player,5);
+                    if(gameBoard.isBought(this)){
+                        gameBoard.PayRent(this,player, game);
+                        System.out.println("Betalt husleje");
+                    } else {
+                        gameBoard.BuyBuilding(this, player, game);
+                        break;
+                    }
                     break;
             }
-                ChanceCardNumber++;
+                //ChanceCardNumber++;
                 break;
             case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free"); game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen");
             /*if (game.getGui().displayChanceCard();{
                 player.setLocationIndex(10);
-                ChandeCardNumber++;
+                ChanceCardNumber++;
                 break;
             }else
                 player.setLocationIndex(11);
@@ -78,7 +112,11 @@ public class ChanceField extends Field{
             if (moveOrTakeCard)
                 game.movePlayer(player,1);
             break;
-            if (!moveOrTakeCard)
+            /*if (!moveOrTakeCard)
+
+                break;
+
+             */
 
 
 
