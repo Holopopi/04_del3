@@ -58,4 +58,18 @@ class GameTest {
         int expectedValue = 16;
         assertEquals(expectedValue,game.getPlayer(1).getSaldo());
     }
+    /**
+     TC3: Spillerens beholdning efter start.
+     */
+    @Test
+    void movePlayerStart() {
+        Game game = new Game();
+        game.addPlayers(16,4,game.getGui());
+        int expectedFirstValue = 16;
+        assertEquals(expectedFirstValue,game.getPlayer(1).getSaldo());
+        game.movePlayer(game.getPlayer(1),25);
+        int expectedSecondValue = 18;
+        assertEquals(expectedSecondValue,game.getPlayer(1).getSaldo());
+    }
+
 }
