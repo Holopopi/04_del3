@@ -20,7 +20,6 @@ public class ChanceField extends Field{
         return new GUI_Chance();
     }
 
-
     @Override
     public GUI_Chance getGuiField() {
         return (GUI_Chance) this.guiField;

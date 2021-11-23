@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 
 public class GameBoard {
-    protected HashMap<HouseField, Player> ownership = new HashMap<>();
+    public HashMap<HouseField, Player> ownership = new HashMap<>();
 
     private Field[] fields;
 
@@ -21,7 +21,7 @@ public class GameBoard {
     public Field[] getFields() {
         return this.fields;
     }
-
+    public boolean freeBuilding;
     public GUI_Field[] getGuiFields(){
         GUI_Field[] fields = new GUI_Field[this.fields.length];
         for (int i=0; i<this.fields.length; i++) {
@@ -99,11 +99,16 @@ public class GameBoard {
     }
      public void ChanceFreeBuilding(HouseField field, Player buyer, Game game){
         if(isBought(field)) {
-            game.getGui().getUserButtonPressed("This building is bought. You have to pay rent","Pay rent");
-            PayRent(field, buyer, game);
+            game.getGui().getUserButtonPressed("The free building is already claimed, you have to pay rent","Pay rent");
+            Player owner = ownership.get(field);
+            if(owner!=buyer) {
+                currentFieldValue = Integer.parseInt(field.getSubText());
+                owner.saldoOpdatering(currentFieldValue);
+                buyer.saldoOpdatering(-(currentFieldValue));
+            }
         }else {
             ownership.put(field, buyer);
-            game.getGui().getUserButtonPressed("This building isn't bought. It's yours for free!", "Continue");
+            game.getGui().getUserButtonPressed("This free building isn't claimed. It's yours for free!", "Claim");
         }
     }
 }
