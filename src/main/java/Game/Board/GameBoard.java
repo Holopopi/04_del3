@@ -20,7 +20,7 @@ public class GameBoard {
     public Field[] getFields() {
         return this.fields;
     }
-
+    public boolean freeBuilding = false;
     public GUI_Field[] getGuiFields(){
         GUI_Field[] fields = new GUI_Field[this.fields.length];
         for (int i=0; i<this.fields.length; i++) {

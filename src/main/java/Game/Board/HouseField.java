@@ -30,11 +30,15 @@ public class HouseField extends Field{
     public void runAction(Player player, Game game) {
         GameBoard gameBoard = game.getGameBoard();
         System.out.print(this);
-        if(gameBoard.isBought(this)){
-            gameBoard.PayRent(this,player, game);
-            System.out.println("Betalt husleje");
+        if(gameBoard.freeBuilding){
+
         } else{
-            gameBoard.BuyBuilding(this, player, game);
+            if (gameBoard.isBought(this)) {
+                gameBoard.PayRent(this, player, game);
+                System.out.println("Betalt husleje");
+            } else {
+                gameBoard.BuyBuilding(this, player, game);
+            }
         }
     }
 }
