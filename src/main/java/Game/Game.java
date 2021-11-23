@@ -23,10 +23,10 @@ public class Game {
         this.gameboard = new GameBoard();
         this.gui = new GUI(gameboard.getGuiFields());
         this.players = new Player[]{
-                new Player(35, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL)),
-                new Player(35, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL)),
-                new Player(35, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)),
-                new Player(35, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL))};
+                new Player(0, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL)),
+                new Player(0, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL)),
+                new Player(0, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)),
+                new Player(0, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL))};
         this.dice = new Dice(6);
     }
 
@@ -36,27 +36,27 @@ public class Game {
     public void newGame() {
         switch (gui.getUserSelection("How many players?", "2", "3", "4")) {
             case "2":
-                addPlayers(2,gui);
-                amountOfPlayers=2;
+                addPlayers(20,2,gui);
                 break;
             case "3":
-                addPlayers(3,gui);
-                amountOfPlayers=3;
+                addPlayers(18,3,gui);
                 break;
             case "4":
-                addPlayers(4,gui);
-                amountOfPlayers=4;
+                addPlayers(16,4,gui);
                 break;
         }
     }
     /**
      * method used to initialize an n amount of players.
      */
-    private void addPlayers(int n,GUI gui){
+    public void addPlayers(int saldo, int n,GUI gui){
+        amountOfPlayers=n;
         for(int i=0;i<n;i++){
             gui.addPlayer(players[i].getPlayer());
+            players[i].saldoOpdatering(saldo);
         }
     }
+
 
     /**
      * Starts the game
@@ -111,6 +111,16 @@ public class Game {
         player.setLocationIndex(indexLocation);
         this.gameboard.getGuiFields()[player.getLocationIndex()].setCar(player.getPlayer(),true);
     }
+
+
+    public int getAmountOfPlayers() {
+        return amountOfPlayers;
+    }
+
+    public Player getPlayer(int index) {
+        return players[index];
+    }
+
     public GUI getGui(){
         return this.gui;
     }
