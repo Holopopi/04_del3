@@ -7,7 +7,7 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    int ChanceCardNumber =1;
+    int ChanceCardNumber = 1;
     boolean moveOrTakeCard;
 
 
@@ -34,7 +34,7 @@ public class ChanceField extends Field{
             case 1:
                 game.getGui().displayChanceCard("Move to start and recive 2M");
                 game.setPlayer(player, 0);
-                gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                player.saldoOpdatering(2);
                 ChanceCardNumber++;
                 break;
             case 2:
@@ -75,15 +75,14 @@ public class ChanceField extends Field{
                         player.setLocationIndex(10);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
-                        ChanceCardNumber++;
                         break;
                     case "Swimmingpoolen":
                         player.setLocationIndex(11);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
-                        ChanceCardNumber++;
                         break;
                 }
+                ChanceCardNumber++;
                 break;
             case 4:
                 game.getGui().displayChanceCard("Move one or take a new chance card ");
@@ -93,10 +92,11 @@ public class ChanceField extends Field{
                     gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                     ChanceCardNumber++;
                 } else if (!moveOrTakeCard) {
-                    gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                     ChanceCardNumber++;
+                    gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                 }
                 break;
+
             case 5:
                 game.getGui().displayChanceCard("You have eaten to much candy pay 2m to the bank");
                 player.saldoOpdatering(-2);
@@ -118,8 +118,15 @@ public class ChanceField extends Field{
                         ChanceCardNumber++;
                         break;
                     case"Bowlinghallen":
-
+                        player.setLocationIndex(19);
+                        gameBoard.freeBuilding = true;
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                        ChanceCardNumber++;
                     case "Zoo":
+                        player.setLocationIndex(20);
+                        gameBoard.freeBuilding = true;
+                        gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
+                        ChanceCardNumber++;
 
                 }
                 break;
@@ -127,7 +134,7 @@ public class ChanceField extends Field{
                 break;
             case 8: game.getGui().displayChanceCard("get a get out of jail card");
             player.setGetOutOfJail(player.getOutOfJail++);
-            //ChanceCardNumber++;
+                ChanceCardNumber++;
                 break;
             case 9: game.getGui().getUserLeftButtonPressed("Building isn't bought. Do you want to buy the building?", "Yes", "No");
                 break;

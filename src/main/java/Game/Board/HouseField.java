@@ -6,17 +6,16 @@ import gui_fields.GUI_Street;
 
 import java.awt.*;
 
-public class HouseField extends Field{
-
+public class HouseField extends Field {
 
 
     //private Player owner;
-    public HouseField(String name,String description,String subText,Color color) {
+    public HouseField(String name, String description, String subText, Color color) {
         super(name, description, subText, color, Color.black);
     }
 
     @Override
-    protected GUI_Street createGUIField(){
+    protected GUI_Street createGUIField() {
         return new GUI_Street();
     }
 
@@ -29,9 +28,9 @@ public class HouseField extends Field{
     public void runAction(Player player, Game game) {
         GameBoard gameBoard = game.getGameBoard();
         System.out.print(gameBoard.freeBuilding);
-        if(gameBoard.freeBuilding){
+        if (gameBoard.freeBuilding) {
             gameBoard.chanceFreeBuilding(this, player, game);
-        } else{
+        } else {
             if (gameBoard.isBought(this)) {
                 gameBoard.PayRent(this, player, game);
                 System.out.println("Betalt husleje");
