@@ -14,6 +14,7 @@ public class Player {
     public int getOutOfJail;
 
 
+
     private GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
 
     public Player(int saldo, String navn,GUI_Car car){

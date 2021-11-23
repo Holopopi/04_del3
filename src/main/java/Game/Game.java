@@ -129,4 +129,11 @@ public class Game {
             startBalance = startMoney;
         }
     }
+
+    public int getDice() {
+        return dice.kastTerning();
+    }
+    public int getAmountOfPlayers(){
+        return amountOfPlayers;
+    }
 }

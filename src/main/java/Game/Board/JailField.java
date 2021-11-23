@@ -9,6 +9,7 @@ import java.awt.*;
 
 public class JailField extends Field{
     boolean useGetOutOfJail;
+    boolean inJail;
 
     private boolean visit=false;
 
@@ -35,19 +36,22 @@ public class JailField extends Field{
 
     @Override
     public void runAction(Player player, Game game) {
-        if(visit==false){
-            if (player.getOutOfJail>0) {
-                useGetOutOfJail = game.getGui().getUserLeftButtonPressed("Do you want to use your get out of jail free card", "yes", "no");
-                {
-                    if (useGetOutOfJail) {
-                        player.getOutOfJail--;
+        int k = game.getDice();
+        if(visit==false) {
+            game.setPlayer(player, 6);
+            if (player.getOutOfJail > 0) {
+                inJail =false;
+                player.getOutOfJail--;
+            } else if (!useGetOutOfJail && k != 6)
+                inJail = true;
+            else
+                game.movePlayer(player, 1);
+        }
+        if (inJail==true){
 
-                    } if (!useGetOutOfJail)
-                        game.setPlayer(player, 6);
+        }
+
+
 
                 }
-            }else
-            game.setPlayer(player,6);
         }
-    }
-}
