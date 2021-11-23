@@ -74,7 +74,12 @@ public class Game {
 
     }
     public void restartGame(){
-        newGame();
+        for(int i = 0; i < amountOfPlayers; i++) {
+            setPlayer(players[i], 0);
+            players[i].saldoOpdatering(-10000);
+            players[i].saldoOpdatering(35);
+            gameboard.ownership.clear();
+        }
         playGame();
         return;
     }

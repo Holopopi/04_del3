@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 
 public class GameBoard {
-    protected HashMap<HouseField, Player> ownership = new HashMap<>();
+    public HashMap<HouseField, Player> ownership = new HashMap<>();
 
     private Field[] fields;
 
