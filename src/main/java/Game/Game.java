@@ -35,29 +35,18 @@ public class Game {
         switch (gui.getUserSelection("How many players?", "2", "3", "4")) {
             case "2":
                 addPlayers(2,gui);
-                for(int i=0; i < 2; i++){
-                    players[i].saldoOpdatering(-100);
-                    players[i].saldoOpdatering(20);
-                    startBalance = 20;
-                }
+                amountOfPlayers = 2;
+                startBalance(20);
                 break;
             case "3":
                 addPlayers(3,gui);
-                for(int i=0; i < 3; i++){
-                    players[i].saldoOpdatering(-100);
-                    players[i].saldoOpdatering(18);
-                    startBalance = 18;
-                }
                 amountOfPlayers=3;
+                startBalance(18);
                 break;
             case "4":
                 addPlayers(4,gui);
-                for(int i=0; i < 4; i++){
-                    players[i].saldoOpdatering(-100);
-                    players[i].saldoOpdatering(16);
-                    startBalance = 16;
-                }
                 amountOfPlayers=4;
+                startBalance(16);
                 break;
         }
     }
@@ -133,5 +122,11 @@ public class Game {
     public GameBoard getGameBoard(){
         return this.gameboard;
     }
-
+    void startBalance(int startMoney){
+        for(int i=0; i < amountOfPlayers; i++){
+            players[i].saldoOpdatering(-100);
+            players[i].saldoOpdatering(startMoney);
+            startBalance = startMoney;
+        }
+    }
 }
