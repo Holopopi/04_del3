@@ -1,8 +1,6 @@
 package Game;// Denne klasse bruges til at lave selve spillet
 
-import Game.Board.Field;
 import Game.Board.GameBoard;
-import Game.Board.HouseField;
 import gui_fields.GUI_Car;
 import gui_main.GUI;
 
@@ -15,7 +13,7 @@ public class Game {
     Player[] players;
     Dice dice;
     int amountOfPlayers;
-
+    int startBalance;
     /**
      * Initializes new game
      */
@@ -37,14 +35,28 @@ public class Game {
         switch (gui.getUserSelection("How many players?", "2", "3", "4")) {
             case "2":
                 addPlayers(2,gui);
-                amountOfPlayers=2;
+                for(int i=0; i < 2; i++){
+                    players[i].saldoOpdatering(-100);
+                    players[i].saldoOpdatering(20);
+                    startBalance = 20;
+                }
                 break;
             case "3":
                 addPlayers(3,gui);
+                for(int i=0; i < 3; i++){
+                    players[i].saldoOpdatering(-100);
+                    players[i].saldoOpdatering(18);
+                    startBalance = 18;
+                }
                 amountOfPlayers=3;
                 break;
             case "4":
                 addPlayers(4,gui);
+                for(int i=0; i < 4; i++){
+                    players[i].saldoOpdatering(-100);
+                    players[i].saldoOpdatering(16);
+                    startBalance = 16;
+                }
                 amountOfPlayers=4;
                 break;
         }
@@ -76,12 +88,11 @@ public class Game {
     public void restartGame(){
         for(int i = 0; i < amountOfPlayers; i++) {
             setPlayer(players[i], 0);
-            players[i].saldoOpdatering(-10000);
-            players[i].saldoOpdatering(35);
+            players[i].saldoOpdatering(-1000);
+            players[i].saldoOpdatering(startBalance);
             gameboard.ownership.clear();
         }
         playGame();
-        return;
     }
     /**
      * Player takes a turn.
