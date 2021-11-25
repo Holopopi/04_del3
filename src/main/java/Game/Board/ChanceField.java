@@ -71,7 +71,7 @@ public class ChanceField extends Field{
             // Player either moves to field 10 or 11 and if it is not bought player gets it for free otherwise the player pays rent
             case 3:
                 game.getGui().displayChanceCard("Move to either the Skate Park or the Swimming Pool and if the field isn't owned you get it for free");
-                switch (game.getGui().getUserButtonPressed("", "Skaterparken", "Swimmingpoolen")) {
+                switch (game.getGui().getUserButtonPressed("", "Skate Park", "Swimming Pool")) {
                     case "Skate park":
                         game.setPlayer(player, 10);
                         gameBoard.freeBuilding = true;
@@ -134,7 +134,6 @@ public class ChanceField extends Field{
             //Player either moves to field 4 or 5 and if it is not bought player gets it for free otherwise the player pays rent
             case 7:
                 game.getGui().displayChanceCard("Move to either the Candy Store or the Ice Cream Parlor and if the field isn't owned you get it for free");
-                ;
                 switch (game.getGui().getUserButtonPressed("", "Candy Store", "Ice Cream Parlor")) {
                     case "Candy Store":
                         game.setPlayer(player, 4);
@@ -221,23 +220,23 @@ public class ChanceField extends Field{
             //Player either moves to field 4, 5, 13 or 14 and if it is not bought player gets it for free otherwise the player pays rent
             case 14:
                 game.getGui().displayChanceCard("Move to either the Candy Store, Ice Cream Parlor, Arcade or the Cinema and if the field isn't owned you get it for free");
-                switch (game.getGui().getUserButtonPressed("", "Slikbutikken", "Iskiosken", "Spillehallen", "Biografen")) {
-                    case "Slikbutikken":
+                switch (game.getGui().getUserButtonPressed("", "Candy Store", "Ice Cream Parlor", "Arcade", "Cinema")) {
+                    case "Candy Store":
                         game.setPlayer(player, 4);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
-                    case "Iskiosken":
+                    case "Ice Cream Parlor":
                         game.setPlayer(player, 5);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
-                    case "Spillehallen":
+                    case "Arcade":
                         game.setPlayer(player, 13);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
-                    case "Biografen":
+                    case "Cinema":
                         game.setPlayer(player, 14);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
