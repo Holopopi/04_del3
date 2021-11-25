@@ -95,20 +95,24 @@ public class Player {
         }
         this.locationIndex = location%24;
     }
+    // makes get out of jail card
     public void setGetOutOfJail(int getOutOfJail){
         getOutOfJail=getOutOfJail;
     }
+    // show the amount of card the player has
     private int getGetOutOfJail(){
         return getOutOfJail;
     }
 
-
+    // sets true if a player land of the jail field
     public void setInJail(){
         inJail=true;
     }
+    // returns boolean inJail
     public boolean getInJail(){
         return inJail;
     }
+    // set false when the player have gotten out of jail
     public void setOutOfJail() {
         inJail=false;
     }
