@@ -33,6 +33,9 @@ public class Player {
         this.konto.addSaldo(saldoOpdatering);
         this.player.setBalance(this.getSaldo());
     }
+    public void setSaldo(int saldo){
+        this.konto.setSaldo(saldo);
+    }
 
     /**
      * Get spillerens GUI spiller objekt

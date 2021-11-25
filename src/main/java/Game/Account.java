@@ -3,7 +3,7 @@ package Game;
 //Denne klasse bruges til at lave en pengebeholdning
 // Game.Konto bliver oprettet inde på spilleren istedet for at blive oprettet inde på kontoklassen
 public class Account {
-    public int saldo;
+    private int saldo;
     public Account(int saldo){
         this.saldo = saldo;
     }
@@ -15,6 +15,10 @@ public class Account {
 
     public void addSaldo(int saldoOpdatering) {
         this.saldo = saldo+saldoOpdatering;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo=saldo;
     }
 }
 

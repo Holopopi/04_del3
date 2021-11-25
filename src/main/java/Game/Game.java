@@ -137,8 +137,7 @@ public class Game {
     }
     void startBalance(int startMoney){
         for(int i=0; i < amountOfPlayers; i++){
-            players[i].saldoOpdatering(-100);
-            players[i].saldoOpdatering(startMoney);
+            players[i].setSaldo(startMoney);
             startBalance = startMoney;
         }
     }
