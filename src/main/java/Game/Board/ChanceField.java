@@ -39,7 +39,7 @@ public class ChanceField extends Field{
                 player.saldoOpdatering(2);
                 ChanceCardNumber++;
                 break;
-            //player choose jumping between 1 too 5
+            //player choose jumping between 1 and 5 fields
             case 2:
                 game.getGui().displayChanceCard("Move between one to five fields");
                 switch (game.getGui().getUserButtonPressed("", "1", "2", "3", "4", "5")) {
