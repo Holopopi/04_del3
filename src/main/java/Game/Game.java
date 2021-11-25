@@ -1,8 +1,10 @@
 package Game;// Denne klasse bruges til at lave selve spillet
 
 import Game.Board.ChanceField;
+import Game.Board.Field;
 import Game.Board.GameBoard;
 import Game.Board.JailField;
+import Game.Board.HouseField;
 import gui_fields.GUI_Car;
 import gui_main.GUI;
 
@@ -55,10 +57,11 @@ public class Game {
     /**
      * method used to initialize an n amount of players.
      */
-    private void addPlayers(int n,GUI gui){
+    void addPlayers(int n, GUI gui){
         for(int i=0;i<n;i++){
             gui.addPlayer(players[i].getPlayer());
         }
+        amountOfPlayers=n;
     }
 
     /**
@@ -90,6 +93,7 @@ public class Game {
      * Player takes a turn.
      */
     private void takeTurn(Player player,Game game){
+        this.gui.getUserButtonPressed(player.getNavn()+"s turn to throw","Throw Die");
         GameBoard gameBoard = getGameBoard();
         if (player.getLocationIndex() == 6) {
             this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
@@ -127,6 +131,16 @@ public class Game {
         player.setLocationIndex(indexLocation);
         this.gameboard.getGuiFields()[player.getLocationIndex()].setCar(player.getPlayer(),true);
     }
+
+
+    public int getAmountOfPlayers() {
+        return amountOfPlayers;
+    }
+
+    public Player getPlayer(int index) {
+        return players[index];
+    }
+
     public GUI getGui(){
         return this.gui;
     }
@@ -135,16 +149,12 @@ public class Game {
     }
     void startBalance(int startMoney){
         for(int i=0; i < amountOfPlayers; i++){
-            players[i].saldoOpdatering(-100);
-            players[i].saldoOpdatering(startMoney);
+            players[i].setSaldo(startMoney);
             startBalance = startMoney;
         }
     }
 
     public int getDice() {
         return dice.kastTerning();
-    }
-    public int getAmountOfPlayers(){
-        return amountOfPlayers;
     }
 }

@@ -9,12 +9,9 @@ import java.awt.*;
 public class ChanceField extends Field{
     public static int ChanceCardNumber =1;
     boolean moveOrTakeCard;
-    boolean birthday;
-
-
 
     public ChanceField() {
-        super("Chance", "Træk et chancekort", "", Color.lightGray, Color.black);
+        super("Chance", "Take a chance card", "", Color.lightGray, Color.black);
     }
 
     @Override
@@ -73,14 +70,14 @@ public class ChanceField extends Field{
                 break;
             // Player either moves to field 10 or 11 and if it is not bought player gets it for free otherwise the player pays rent
             case 3:
-                game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free");
+                game.getGui().displayChanceCard("Move to either the Skate Park or the Swimming Pool and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Skaterparken", "Swimmingpoolen")) {
-                    case "Skaterparken":
+                    case "Skate park":
                         game.setPlayer(player, 10);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
-                    case "Swimmingpoolen":
+                    case"Swimming Pool" :
                         game.setPlayer(player, 11);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
