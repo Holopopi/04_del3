@@ -55,7 +55,7 @@ public class Game {
     /**
      * method used to initialize an n amount of players.
      */
-    private void addPlayers(int n,GUI gui){
+    void addPlayers(int n, GUI gui){
         for(int i=0;i<n;i++){
             gui.addPlayer(players[i].getPlayer());
         }
