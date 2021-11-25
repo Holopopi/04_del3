@@ -15,7 +15,7 @@ public class Game {
     Player[] players;
     Dice dice;
     int amountOfPlayers;
-
+    int startBalance;
     /**
      * Initializes new game
      */
@@ -23,10 +23,10 @@ public class Game {
         this.gameboard = new GameBoard();
         this.gui = new GUI(gameboard.getGuiFields());
         this.players = new Player[]{
-                new Player(0, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL)),
-                new Player(0, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL)),
-                new Player(0, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)),
-                new Player(0, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL))};
+                new Player(35, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL)),
+                new Player(35, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL)),
+                new Player(35, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)),
+                new Player(35, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL))};
         this.dice = new Dice(6);
     }
 
@@ -36,27 +36,30 @@ public class Game {
     public void newGame() {
         switch (gui.getUserSelection("How many players?", "2", "3", "4")) {
             case "2":
-                addPlayers(20,2,gui);
+                addPlayers(2,gui);
+                amountOfPlayers = 2;
+                startBalance(20);
                 break;
             case "3":
-                addPlayers(18,3,gui);
+                addPlayers(3,gui);
+                amountOfPlayers=3;
+                startBalance(18);
                 break;
             case "4":
-                addPlayers(16,4,gui);
+                addPlayers(4,gui);
+                amountOfPlayers=4;
+                startBalance(16);
                 break;
         }
     }
     /**
      * method used to initialize an n amount of players.
      */
-    public void addPlayers(int saldo, int n,GUI gui){
-        amountOfPlayers=n;
+    private void addPlayers(int n,GUI gui){
         for(int i=0;i<n;i++){
             gui.addPlayer(players[i].getPlayer());
-            players[i].saldoOpdatering(saldo);
         }
     }
-
 
     /**
      * Starts the game
@@ -74,9 +77,13 @@ public class Game {
 
     }
     public void restartGame(){
-        newGame();
+        for(int i = 0; i < amountOfPlayers; i++) {
+            setPlayer(players[i], 0);
+            players[i].saldoOpdatering(-1000);
+            players[i].saldoOpdatering(startBalance);
+            gameboard.ownership.clear();
+        }
         playGame();
-        return;
     }
     /**
      * Player takes a turn.
@@ -127,5 +134,11 @@ public class Game {
     public GameBoard getGameBoard(){
         return this.gameboard;
     }
-
+    void startBalance(int startMoney){
+        for(int i=0; i < amountOfPlayers; i++){
+            players[i].saldoOpdatering(-100);
+            players[i].saldoOpdatering(startMoney);
+            startBalance = startMoney;
+        }
+    }
 }
