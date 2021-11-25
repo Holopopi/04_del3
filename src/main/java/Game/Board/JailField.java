@@ -34,15 +34,27 @@ public class JailField extends Field {
 
     @Override
     public void runAction(Player player, Game game) {
-        if (visit == false) {
-            game.getGui().getUserButtonPressed("Go to Jail","OK");
+        if (player.getInJail()) {
+            if (player.getOutOfJail > 0) {
+                player.getOutOfJail--;
+                game.getGui().getUserButtonPressed("You have used a get ou of jail free card", "OK");
+                player.setOutOfJail();
+            } else {
+                player.saldoOpdatering(-1);
+                game.getGui().getUserButtonPressed("You paid 1m to get out of prison ", "OK");
+                player.setOutOfJail();
+            }
+        }
+            if (visit == false) {
+            game.getGui().getUserButtonPressed("Go to Jail", "OK");
             game.setPlayer(player, 6);
             player.setInJail();
-            }
 
-
-
-            }
 
         }
 
+
+
+
+            }
+        }

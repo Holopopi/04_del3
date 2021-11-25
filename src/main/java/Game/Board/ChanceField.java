@@ -165,7 +165,7 @@ public class ChanceField extends Field{
                 ChanceCardNumber++;
                 break;
             //Player either moves to field 10, 11, 19 or 20 and if it is not bought player gets it for free otherwise the player pays rent
-            case 11:
+            case 10:
                 game.getGui().displayChanceCard("Move to either Museet, Biblioteket, Bowlinghallen or the zoo and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Museet", "Biblioteket", "Vandlandet", "Strandpromenaden")) {
                     case "Museet":
@@ -192,13 +192,13 @@ public class ChanceField extends Field{
                 ChanceCardNumber++;
                 break;
 
-            case 12:
+            case 11:
                 game.getGui().displayChanceCard("You have made your homework gain 2m from the bank");
                 player.saldoOpdatering(2);
+                ChanceCardNumber++;
                 break;
-            case 13:
+            case 12:
                 game.getGui().displayChanceCard("Move to either Spillehallen or Biografen  and if the field isn't owned you get it for free");
-                ;
                 switch (game.getGui().getUserButtonPressed("", "Spillehallen", "Biografen")) {
                     case "Spillehallen":
                         game.setPlayer(player, 13);
@@ -213,13 +213,13 @@ public class ChanceField extends Field{
                 }
                 ChanceCardNumber++;
                 break;
-            case 14:
+            case 13:
                 game.getGui().displayChanceCard("Move to Skaterparken ");
                 game.setPlayer(player, 10);
                 gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                 ChanceCardNumber++;
                 break;
-            case 15:
+            case 14:
                 game.getGui().displayChanceCard("Move to either Slikbutikken, Iskiosken, Spillehallen  or Biografen and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Slikbutikken", "Iskiosken", "Spillehallen", "Biografen")) {
                     case "Slikbutikken":
@@ -245,7 +245,7 @@ public class ChanceField extends Field{
                 }
                 ChanceCardNumber++;
                 break;
-            case 16:
+            case 15:
                 game.getGui().displayChanceCard("Move to either Burgerbaren, Pizzertiaet, Legetøjsbutikken  or Dyrehandlen and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Burgerbaren", "Pizzertiaet", "Legetøjsbutikken", "Dyrehandlen")) {
                     case "Burgerbaren":
@@ -272,7 +272,8 @@ public class ChanceField extends Field{
                 ChanceCardNumber++;
                 break;
         }
-        if (ChanceCardNumber>16)
+        if (ChanceCardNumber>15)
             ChanceCardNumber=1;
+
         }
     }

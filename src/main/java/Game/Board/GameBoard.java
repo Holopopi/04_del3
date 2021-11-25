@@ -11,6 +11,7 @@ public class GameBoard {
     public HashMap<HouseField, Player> ownership = new HashMap<>();
 
     private Field[] fields;
+    private boolean visit;
 
 
     public GameBoard() {

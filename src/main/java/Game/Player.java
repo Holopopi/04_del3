@@ -101,9 +101,12 @@ public class Player {
 
 
     public void setInJail(){
-        inJail=false;
+        inJail=true;
     }
     public boolean getInJail(){
         return inJail;
+    }
+    public void setOutOfJail() {
+        inJail=false;
     }
 }

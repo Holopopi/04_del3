@@ -1,6 +1,7 @@
 package Game;// Denne klasse bruges til at lave selve spillet
 
 import Game.Board.GameBoard;
+import Game.Board.JailField;
 import gui_fields.GUI_Car;
 import gui_main.GUI;
 
@@ -68,7 +69,7 @@ public class Game {
 
         while(players[1].getSaldo()>0){
             playersTurn=i%amountOfPlayers;
-            takeTurn(players[playersTurn]);
+            takeTurn(players[playersTurn],this);
             i++;
         }
 
@@ -86,25 +87,21 @@ public class Game {
     /**
      * Player takes a turn.
      */
-    private void takeTurn(Player player){
-        if (player.getInJail()==true);{
-            if (player.getOutOfJail > 0) {
-                player.getOutOfJail--;
-                getGui().getUserButtonPressed("You have used a get ou of jail free card", "OK");
-                player.setInJail();
-            } else if (player.getOutOfJail==0){
-                player.saldoOpdatering(-1);
-                getGui().getUserButtonPressed("You paid 1m to get out of prison ", "OK");
-                player.setInJail();
-
-            }
+    private void takeTurn(Player player,Game game){
+        GameBoard gameBoard = getGameBoard();
+        if (player.getLocationIndex() == 6) {
+            this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
         }
+
+
 
         this.gui.getUserButtonPressed("kast","kast");
         int dice = this.dice.kastTerning();
         this.gui.setDie(dice);
         movePlayer(player,dice);
-        this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
+        if (player.getLocationIndex() != 6) {
+            this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
+        }
         if(player.getSaldo() <= 0){
             if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yessirrr", "Noo")){
                 restartGame();
