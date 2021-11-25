@@ -66,7 +66,6 @@ class GameTest {
     /**
      TC3
      */
-
     @Test
     void movePlayerStart() {
         Game game = new Game();
@@ -78,4 +77,26 @@ class GameTest {
         int expectedSecondValue = expectedFirstValue+2;
         assertEquals(expectedSecondValue,game.getPlayer(1).getSaldo());
     }
+
+    /**
+     TC4 & TC5
+     */
+    @Test
+    void buyBuilding() {
+        Game game = new Game();
+        game.addPlayers(2,game.getGui());
+        game.startBalance(16);
+        game.movePlayer(game.getPlayer(0),1);
+        game.getGameBoard().getFields()[1].runAction(game.getPlayer(0),game);
+        int expectedFirstValue = 15;
+        assertEquals(expectedFirstValue,game.getPlayer(0).getSaldo());
+        game.movePlayer(game.getPlayer(1),1);
+        game.getGameBoard().getFields()[1].runAction(game.getPlayer(1),game);
+        int expectedSecondValue=16;
+        assertEquals(expectedSecondValue,game.getPlayer(0).getSaldo());
+        assertEquals(expectedFirstValue,game.getPlayer(1).getSaldo());
+
+
+    }
+
 }
