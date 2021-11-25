@@ -7,7 +7,7 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    static int ChanceCardNumber =1;
+    public static int ChanceCardNumber =15;
     boolean moveOrTakeCard;
     boolean birthday;
 
@@ -109,7 +109,7 @@ public class ChanceField extends Field{
                 break;
             //Player either moves to field 10, 11, 19 or 20 and if it is not bought player gets it for free otherwise the player pays rent
             case 6:
-                game.getGui().displayChanceCard("Move to either Skateparken, Swimmingpoolen, Bowlinghallen or the zoo and if the field isn't owned you get it for free");
+                game.getGui().displayChanceCard("Move to either Skateparken, Swimmingpoolen, Bowlinghallen or the Zoo and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Skaterparken", "Swimmingpoolen", "Bowlinghallen", "Zoo")) {
                     case "Skaterparken":
                         game.setPlayer(player, 10);
@@ -148,8 +148,8 @@ public class ChanceField extends Field{
                         game.setPlayer(player, 5);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
-                }
-                ChanceCardNumber++;
+                        break;
+                }ChanceCardNumber++;
                 break;
             // Player gets a get out of jail card
             case 8:
@@ -189,14 +189,15 @@ public class ChanceField extends Field{
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
                 }
-                ChanceCardNumber++;
                 break;
+                //players get paid 2m by the bank
 
             case 11:
                 game.getGui().displayChanceCard("You have made your homework gain 2m from the bank");
                 player.saldoOpdatering(2);
                 ChanceCardNumber++;
                 break;
+            //Player either moves to field 13 or 14
             case 12:
                 game.getGui().displayChanceCard("Move to either Spillehallen or Biografen  and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Spillehallen", "Biografen")) {
@@ -213,12 +214,14 @@ public class ChanceField extends Field{
                 }
                 ChanceCardNumber++;
                 break;
+            //Player either moves to field 10
             case 13:
                 game.getGui().displayChanceCard("Move to Skaterparken ");
                 game.setPlayer(player, 10);
                 gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                 ChanceCardNumber++;
                 break;
+            //Player either moves to field 4, 5, 13 or 14 and if it is not bought player gets it for free otherwise the player pays rent
             case 14:
                 game.getGui().displayChanceCard("Move to either Slikbutikken, Iskiosken, Spillehallen  or Biografen and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Slikbutikken", "Iskiosken", "Spillehallen", "Biografen")) {
@@ -245,6 +248,7 @@ public class ChanceField extends Field{
                 }
                 ChanceCardNumber++;
                 break;
+            //Player either moves to field 1, 2, 16 or 17 and if it is not bought player gets it for free otherwise the player pays rent
             case 15:
                 game.getGui().displayChanceCard("Move to either Burgerbaren, Pizzertiaet, Legetøjsbutikken  or Dyrehandlen and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Burgerbaren", "Pizzertiaet", "Legetøjsbutikken", "Dyrehandlen")) {
@@ -268,8 +272,7 @@ public class ChanceField extends Field{
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
-                }
-                ChanceCardNumber++;
+                }ChanceCardNumber++;
                 break;
         }
         if (ChanceCardNumber>15)

@@ -1,5 +1,6 @@
 package Game;// Denne klasse bruges til at lave selve spillet
 
+import Game.Board.ChanceField;
 import Game.Board.GameBoard;
 import Game.Board.JailField;
 import gui_fields.GUI_Car;
@@ -81,6 +82,7 @@ public class Game {
             players[i].saldoOpdatering(-1000);
             players[i].saldoOpdatering(startBalance);
             gameboard.ownership.clear();
+            ChanceField.ChanceCardNumber=1;
         }
         playGame();
     }
