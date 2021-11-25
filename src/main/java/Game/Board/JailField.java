@@ -13,7 +13,7 @@ public class JailField extends Field {
     private boolean visit = false;
 
     public JailField(){
-        super("Go to Jail","Go to Jail","Go to Jail", Color.white, Color.black);
+        super("Go to jail","Go to jail","Go to jail", Color.white, Color.black);
     }
 
     public JailField(boolean visit) {
@@ -39,17 +39,17 @@ public class JailField extends Field {
         if (player.getInJail()) {
             if (player.getOutOfJail > 0) {
                 player.getOutOfJail--;
-                game.getGui().getUserButtonPressed("You have used a get ou of jail free card", "OK");
+                game.getGui().getUserButtonPressed("You have used a get out of jail free card", "OK");
                 player.setOutOfJail();
             } else {
                 player.saldoOpdatering(-1);
-                game.getGui().getUserButtonPressed("You paid 1m to get out of prison ", "OK");
+                game.getGui().getUserButtonPressed("You paid 1m to get out of jail", "OK");
                 player.setOutOfJail();
             }
         }
         //puts you into jail
             if (visit == false) {
-            game.getGui().getUserButtonPressed("Go to Jail", "OK");
+            game.getGui().getUserButtonPressed("Go to jail", "OK");
             game.setPlayer(player, 6);
             player.setInJail();
 

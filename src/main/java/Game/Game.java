@@ -109,7 +109,7 @@ public class Game {
             this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
         }
         if(player.getSaldo() <= 0){
-            if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yessirrr", "Noo")){
+            if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yes", "No")){
                 restartGame();
             } else{
                 System.exit(0);
