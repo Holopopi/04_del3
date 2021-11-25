@@ -18,7 +18,7 @@ public class Player {
 
     private GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
 
-    public Player(int saldo, String navn,GUI_Car car){
+    public Player(int saldo, String navn,GUI_Car car,boolean inJail){
         if (saldo<0){
             this.konto = new Account(0);
         }
@@ -97,5 +97,13 @@ public class Player {
     }
     private int getGetOutOfJail(){
         return getOutOfJail;
+    }
+
+
+    public void setInJail(){
+        inJail=false;
+    }
+    public boolean getInJail(){
+        return inJail;
     }
 }

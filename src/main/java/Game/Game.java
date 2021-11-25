@@ -21,10 +21,10 @@ public class Game {
         this.gameboard = new GameBoard();
         this.gui = new GUI(gameboard.getGuiFields());
         this.players = new Player[]{
-                new Player(35, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL)),
-                new Player(35, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL)),
-                new Player(35, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)),
-                new Player(35, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL))};
+                new Player(35, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL),false),
+                new Player(35, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL),false),
+                new Player(35, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),false),
+                new Player(35, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL),false)};
         this.dice = new Dice(6);
     }
 
@@ -87,8 +87,20 @@ public class Game {
      * Player takes a turn.
      */
     private void takeTurn(Player player){
-        this.gui.getUserButtonPressed("kast","kast");
+        if (player.getInJail()==true);{
+            if (player.getOutOfJail > 0) {
+                player.getOutOfJail--;
+                getGui().getUserButtonPressed("You have used a get ou of jail free card", "OK");
+                player.setInJail();
+            } else if (player.getOutOfJail==0){
+                player.saldoOpdatering(-1);
+                getGui().getUserButtonPressed("You paid 1m to get out of prison ", "OK");
+                player.setInJail();
 
+            }
+        }
+
+        this.gui.getUserButtonPressed("kast","kast");
         int dice = this.dice.kastTerning();
         this.gui.setDie(dice);
         movePlayer(player,dice);

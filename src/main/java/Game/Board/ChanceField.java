@@ -7,7 +7,7 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    int ChanceCardNumber =1;
+    static int ChanceCardNumber =1;
     boolean moveOrTakeCard;
     boolean birthday;
 
@@ -36,7 +36,7 @@ public class ChanceField extends Field{
             case 1:
                 game.getGui().displayChanceCard("Move to start and recive 2M");
                 game.setPlayer(player, 0);
-                player.saldoOpdatering(2);
+                player.collectStart();
                 ChanceCardNumber++;
                 break;
             //player choose jumping between 1 too 5

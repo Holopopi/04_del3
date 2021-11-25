@@ -9,7 +9,6 @@ import java.awt.*;
 
 public class JailField extends Field {
     boolean useGetOutOfJail;
-    boolean inJail;
 
     private boolean visit = false;
 
@@ -38,24 +37,12 @@ public class JailField extends Field {
         if (visit == false) {
             game.getGui().getUserButtonPressed("Go to Jail","OK");
             game.setPlayer(player, 6);
-            inJail = true;
+            player.setInJail();
+            }
 
 
 
             }
-        if (inJail == true) {
-            if (player.getOutOfJail > 0) {
-                player.getOutOfJail--;
-                game.getGui().getUserButtonPressed("You have used a get ou of jail free card","OK");
-                inJail = false;
-            } else {
-                player.saldoOpdatering(-1);
-                game.getGui().getUserButtonPressed("You paid 1m to get out of prison ","OK");
-                inJail = false;
-            }
-            inJail = true;
 
         }
 
-    }
-}
