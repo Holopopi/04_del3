@@ -12,6 +12,7 @@ public class Player {
     private GUI_Player player;
     private int locationIndex;
     public int getOutOfJail;
+    private boolean inJail;
 
 
 

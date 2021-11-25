@@ -7,7 +7,7 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    int ChanceCardNumber =10;
+    int ChanceCardNumber =1;
     boolean moveOrTakeCard;
     boolean birthday;
 
@@ -159,28 +159,22 @@ public class ChanceField extends Field{
                 break;
             //Player moves to field 23
             case 9:
-                game.getGui().displayChanceCard("Move to Strandptomennaden ");
+                game.getGui().displayChanceCard("Move to Strandpromennaden ");
                 game.setPlayer(player, 23);
                 gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                 ChanceCardNumber++;
                 break;
-            //All players give 1m to the player that pulled the card
-            case 10:
-                game.getGui().displayChanceCard("It's your birtday all players give you 1m");
-                player.saldoOpdatering(game.getAmountOfPlayers() - 1);
-                birthday = true;
-                ChanceCardNumber++;
-                break;
+            //Player either moves to field 10, 11, 19 or 20 and if it is not bought player gets it for free otherwise the player pays rent
             case 11:
-                game.getGui().displayChanceCard("Move to either Skateparken, Swimmingpoolen, Bowlinghallen or the zoo and if the field isn't owned you get it for free");
+                game.getGui().displayChanceCard("Move to either Museet, Biblioteket, Bowlinghallen or the zoo and if the field isn't owned you get it for free");
                 switch (game.getGui().getUserButtonPressed("", "Museet", "Biblioteket", "Vandlandet", "Strandpromenaden")) {
                     case "Museet":
-                        game.setPlayer(player, 10);
+                        game.setPlayer(player, 7);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
                     case "Biblioteket":
-                        game.setPlayer(player, 11);
+                        game.setPlayer(player, 8);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                         break;
