@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameTest {
 
     /**
-    TC1: Valg af spillere
+    TC1
      */
     @Test
     void newGamePlayerTwoPlayers() {
@@ -35,7 +35,7 @@ class GameTest {
     }
 
     /**
-     TC2: Spillerens beholdning ved n spillere.
+     TC2
      */
     @Test
     void newGameBalanceTwoPlayers() {
@@ -59,7 +59,7 @@ class GameTest {
         assertEquals(expectedValue,game.getPlayer(1).getSaldo());
     }
     /**
-     TC3: Spillerens beholdning efter start.
+     TC3
      */
     @Test
     void movePlayerStart() {
@@ -68,7 +68,7 @@ class GameTest {
         int expectedFirstValue = 16;
         assertEquals(expectedFirstValue,game.getPlayer(1).getSaldo());
         game.movePlayer(game.getPlayer(1),25);
-        int expectedSecondValue = 18;
+        int expectedSecondValue = expectedFirstValue+2;
         assertEquals(expectedSecondValue,game.getPlayer(1).getSaldo());
     }
 
