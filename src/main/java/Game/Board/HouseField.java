@@ -34,7 +34,7 @@ public class HouseField extends Field{
         } else{
             if (gameBoard.isBought(this)) {
                 gameBoard.PayRent(this, player, game);
-                System.out.println("Betalt husleje");
+                System.out.println("Paid rent");
             } else {
                 gameBoard.BuyBuilding(this, player, game);
             }

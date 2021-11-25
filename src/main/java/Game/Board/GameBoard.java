@@ -33,35 +33,29 @@ public class GameBoard {
     private Field[] createFields() {
         return new Field[]{
                 new StartField(),
-                new HouseField("Burgerbaren","Burgerbaren","1", new Color(65,80,30)),
-                new HouseField("Pizzeriaet","Pizzeriaet","1", new Color(65,80,30)),
+                new HouseField("Burger Joint","Burger Joint","1", new Color(65,80,30)),
+                new HouseField("Pizzeria","Pizzeria","1", new Color(65,80,30)),
                 new ChanceField(),
-                new HouseField("Slikbutikken","Slikbutikken","1", new Color(173,216,230)),
-                new HouseField("Iskiosken","Iskiosken","1", new Color(173,216,230)),
+                new HouseField("Candy Store","Candy Store","1", new Color(173,216,230)),
+                new HouseField("Ice Cream Parlor","Ice Cream Parlor","1", new Color(173,216,230)),
                 new JailField(true),
-                new HouseField("Museet","Museet","2", Color.pink),
-                new HouseField("Biblioteket","Biblioteket","2", Color.pink),
+                new HouseField("Museum","Museum","2", Color.pink),
+                new HouseField("Library","Library","2", Color.pink),
                 new ChanceField(),
-                new HouseField("Skateparken","Skateparken","2", Color.orange),
-                new HouseField("Swimmingpoolen","Swimmingpoolen","2", Color.orange),
+                new HouseField("Skate Park","Skate Park","2", Color.orange),
+                new HouseField("Swimming Pool","Swimming Pool","2", Color.orange),
                 new ParkingField(),
-                new HouseField("Spillehallen","Spillehallen","3", Color.red),
-                new HouseField("Biografen","Biografen","3", Color.red),
+                new HouseField("Arcade","Arcade","3", Color.red),
+                new HouseField("Cinema","Cinema","3", Color.red),
                 new ChanceField(),
-                new HouseField("Legetøjsbutikken","Legetøjsbutikken","3", Color.yellow),
-                new HouseField("Dyrehandlen","Dyrehandlen","3", Color.yellow),
+                new HouseField("Toy Store","Toy Store","3", Color.yellow),
+                new HouseField("Pet Shop","Pet Shop","3", Color.yellow),
                 new JailField(),
-                new HouseField("Bowlinghallen","Bowlinghallen","4", Color.green),
+                new HouseField("Bowling Alley","Bowling Alley","4", Color.green),
                 new HouseField("Zoo","Zoo","4", Color.green),
                 new ChanceField(),
-                new HouseField("Vandlandet","Vandlandet","5", Color.blue),
-                new HouseField("Strandpromenaden","Strandpromenaden","5", Color.blue),
-
-
-
-
-
-
+                new HouseField("Water Park","Water Park","5", Color.blue),
+                new HouseField("The Boardwalk","The Boardwalk","5", Color.blue),
         };
     }
     private int currentFieldValue;

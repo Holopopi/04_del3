@@ -9,7 +9,7 @@ import java.awt.*;
 public class ParkingField extends Field{
 
     public ParkingField() {
-        super("Gratis Parkering", "Gratis Parkering", "", new Color(10 ,125,255), Color.black);
+        super("Free Parking", "Free Parking", "", new Color(10 ,125,255), Color.black);
     }
 
     @Override

@@ -11,11 +11,11 @@ public class JailField extends Field{
     private boolean visit=false;
 
     public JailField(){
-        super("Gå i fængsel","Gå i Fængsel","Gå i Fængsel", Color.white, Color.black);
+        super("Go to Jail","Go to Jail","Go to Jail", Color.white, Color.black);
     }
 
     public JailField(boolean visit) {
-        super("Fængsel","Fængsel","På besøg", Color.white, Color.black);
+        super("Jail","Jail","Visiting", Color.white, Color.black);
         this.visit=visit;
     }
 

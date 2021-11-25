@@ -11,7 +11,7 @@ public class ChanceField extends Field{
     boolean moveOrTakeCard;
 
     public ChanceField() {
-        super("Chance", "Træk et chancekort", "", Color.lightGray, Color.black);
+        super("Chance", "Take a chance card", "", Color.lightGray, Color.black);
     }
 
     @Override
@@ -64,15 +64,15 @@ public class ChanceField extends Field{
                 }
                 ChanceCardNumber++;
                 break;
-            case 3:game.getGui().displayChanceCard("Move to either Skateparken or Swimmingpoolen and if the field isn't owned you get it for free");
-                switch (game.getGui().getUserButtonPressed("", "Skaterparken","Swimmingpoolen")) {
-                    case "Skaterparken":
+            case 3:game.getGui().displayChanceCard("Move to either Skate Park or Swimming Pool and if the field isn't owned you get it for free");
+                switch (game.getGui().getUserButtonPressed("", "Skate Park","Swimming Pool")) {
+                    case "Skate Park":
                         game.setPlayer(player, 10);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);
                         ChanceCardNumber++;
                         break;
-                    case"Swimmingpoolen" :
+                    case"Swimming Pool" :
                         game.setPlayer(player, 11);
                         gameBoard.freeBuilding = true;
                         gameBoard.getFields()[player.getLocationIndex()].runAction(player,game);

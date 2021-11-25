@@ -15,9 +15,6 @@ public class Account {
 
     public void addSaldo(int saldoOpdatering) {
         this.saldo = saldo+saldoOpdatering;
-        if (this.saldo < 0) {
-            this.saldo = 0;
     }
-}
 }
 

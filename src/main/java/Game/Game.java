@@ -90,7 +90,7 @@ public class Game {
      * Player takes a turn.
      */
     private void takeTurn(Player player){
-        this.gui.getUserButtonPressed("kast","kast");
+        this.gui.getUserButtonPressed(player.getNavn()+"'s turn to throw","Throw Die");
 
         int dice = this.dice.kastTerning();
         this.gui.setDie(dice);
