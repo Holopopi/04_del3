@@ -9,6 +9,7 @@ class GameTest {
     /**
     TC1
      */
+
     @Test
     void newGamePlayerTwoPlayers() {
         Game game = new Game();
@@ -31,16 +32,18 @@ class GameTest {
         game.addPlayers(4,game.getGui());
         int amountOfPlayers=game.getAmountOfPlayers();
         int expectedAmountOfPlayers=4;
-        assertEquals(epectedAmountOfPlayers,amountOfPlayers);
+        assertEquals(expectedAmountOfPlayers,amountOfPlayers);
     }
 
     /**
      TC2
      */
+
     @Test
     void newGameBalanceTwoPlayers() {
         Game game = new Game();
         game.addPlayers(2,game.getGui());
+        game.startBalance(20);
         int expectedValue = 20;
         assertEquals(expectedValue,game.getPlayer(1).getSaldo());
     }
@@ -48,6 +51,7 @@ class GameTest {
     void newGameBalanceThreePlayers() {
         Game game = new Game();
         game.addPlayers(3,game.getGui());
+        game.startBalance(18);
         int expectedValue = 18;
         assertEquals(expectedValue,game.getPlayer(1).getSaldo());
     }
@@ -55,21 +59,23 @@ class GameTest {
     void newGameBalanceFourPlayers() {
         Game game = new Game();
         game.addPlayers(4,game.getGui());
+        game.startBalance(16);
         int expectedValue = 16;
         assertEquals(expectedValue,game.getPlayer(1).getSaldo());
     }
     /**
      TC3
      */
+
     @Test
     void movePlayerStart() {
         Game game = new Game();
         game.addPlayers(2,game.getGui());
+        game.startBalance(16);
         int expectedFirstValue = 16;
         assertEquals(expectedFirstValue,game.getPlayer(1).getSaldo());
         game.movePlayer(game.getPlayer(1),25);
         int expectedSecondValue = expectedFirstValue+2;
         assertEquals(expectedSecondValue,game.getPlayer(1).getSaldo());
     }
-
 }

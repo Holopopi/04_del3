@@ -59,6 +59,7 @@ public class Game {
         for(int i=0;i<n;i++){
             gui.addPlayer(players[i].getPlayer());
         }
+        amountOfPlayers=n;
     }
 
     /**
