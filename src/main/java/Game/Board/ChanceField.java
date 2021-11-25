@@ -7,7 +7,7 @@ import gui_fields.GUI_Chance;
 import java.awt.*;
 
 public class ChanceField extends Field{
-    public static int ChanceCardNumber =15;
+    public static int ChanceCardNumber =1;
     boolean moveOrTakeCard;
     boolean birthday;
 

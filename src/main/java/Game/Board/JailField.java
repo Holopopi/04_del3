@@ -34,6 +34,7 @@ public class JailField extends Field {
 
     @Override
     public void runAction(Player player, Game game) {
+        // either use a getOutOfJail card or pay 1m
         if (player.getInJail()) {
             if (player.getOutOfJail > 0) {
                 player.getOutOfJail--;
@@ -45,6 +46,7 @@ public class JailField extends Field {
                 player.setOutOfJail();
             }
         }
+        //puts you into jail
             if (visit == false) {
             game.getGui().getUserButtonPressed("Go to Jail", "OK");
             game.setPlayer(player, 6);
