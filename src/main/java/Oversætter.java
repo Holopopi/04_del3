@@ -1,5 +1,8 @@
 import java.io.*;
 
+/* Denne klasse er lavet til at skrive og læse filer, hvilket laver tekst filer med alle linjer hvorfra de manuelt kan
+oversættes til andre sprog. Indtil videre har vi ikke indsat spillets tekst strenge endnu.
+ */
 public class Oversætter {
     public static void main(String[] args) throws IOException {
         skrivFil();
