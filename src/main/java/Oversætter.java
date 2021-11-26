@@ -1,7 +1,8 @@
 import java.io.*;
+import java.util.ArrayList;
 
 /* Denne klasse er lavet til at skrive og læse filer, hvilket laver tekst filer med alle linjer hvorfra de manuelt kan
-oversættes til andre sprog. Indtil videre har vi ikke indsat spillets tekst strenge endnu.
+oversættes til andre sprog. Vi har indsæt spillets strenge på engelsk og har oversat dem manuelt til dansk.
  */
 public class Oversætter {
     public static void main(String[] args) throws IOException {
@@ -260,10 +261,13 @@ public class Oversætter {
         String file ="Dansk.txt";
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String currentLine = reader.readLine();
+        ArrayList<String> liste = new ArrayList<String>();
         while (currentLine != null){
             System.out.println(currentLine);
+            liste.add(currentLine);
             currentLine = reader.readLine();
         }
+        System.out.println(liste.get(7));
         reader.close();
     }
 }

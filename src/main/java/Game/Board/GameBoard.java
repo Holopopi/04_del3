@@ -88,6 +88,10 @@ public class GameBoard {
                 game.getGui().getUserButtonPressed(str, "Okay");
                 owner.saldoOpdatering(currentFieldValue);
                 rentPayer.saldoOpdatering(-(currentFieldValue));
+                }
+            else if (rentPayer.getSaldo() <= 0) {
+                rentPayer.saldoOpdatering(-(currentFieldValue));
+                game.endGame(rentPayer);
             }
     }
     public void chanceFreeBuilding(HouseField field, Player buyer, Game game){

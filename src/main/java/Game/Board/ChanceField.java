@@ -98,6 +98,7 @@ public class ChanceField extends Field{
                     gameBoard.getFields()[player.getLocationIndex()].runAction(player, game);
                 }
                 break;
+
             //Player pays 2m to the bank
             case 5:
                 game.getGui().displayChanceCard("You have eaten too much candy, pay 2m to the bank");
