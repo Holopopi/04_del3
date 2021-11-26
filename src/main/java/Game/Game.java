@@ -103,12 +103,19 @@ public class Game {
         if (player.getLocationIndex() != 6) {
             this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
         }
-        if(player.getSaldo() <= 0){
-            if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yes", "No")){
-                restartGame();
-            } else{
-                System.exit(0);
-            }
+        if(player.getSaldo() < 0){
+            endGame(player);
+        }
+    }
+
+    /**
+     * Ends the game because of @param player's has less than 0.
+     */
+    public void endGame(Player player){
+        if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yes", "No")){
+            restartGame();
+        } else{
+            System.exit(0);
         }
     }
 
