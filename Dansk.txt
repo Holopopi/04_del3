@@ -1,10 +1,232 @@
-knap_1_tekst
-Tryk på mig
-knap_2_tekst
-hej
-brugervelkomst
-velkommen til mit spil
-ugyldigtTræk
-Dette træk er ugyldigt. Vælg noget andet
-skiftsprogknap
-skift sprog
+getUserSelection
+Hvor mange spillere?
+CurrentPlayersTurn
+'s tur til at kaste
+ThrowDieButton
+Kast terning
+LostGamePrompt
+ har tabt spillet! Vil du gerne starte et nyt spil?
+NewGameButtonTrue
+Ja
+NewGameButtonFalse
+Nej
+ChanceTitle
+Chance
+ChanceDescription
+Tag et chance kort
+Chancecase1
+Ryk til start og modtag 2M
+Chancecase2
+Ryk en til fem felter
+Chancecase2.1
+Du rykker et felt
+Chancecase2.2
+Du rykker to felter
+Chancecase2.3
+Du rykker tre felter
+Chancecase2.4
+Du rykker fire felter
+Chancecase2.5
+Du rykker fem felter
+Chancecase3
+Ryk til enten Skate Parken or Swimming Poolen og hvis feltet ikke er ejet får du det gratis
+Chancecase3.SkateparkButton
+Skate Parken
+Chancecase3.SwimmingPoolButton
+Swimming Poolen
+Chancecase4
+Ryk et felt eller tag et nyt chance kort
+Chancecase4TrueButton
+Ryk et felt
+Chancecase4FalseButton
+Tag et til chance kort
+Chancecase5
+Du har spist for meget slik, betal 2M til banken
+Chancecase6
+Ryk enten til Skate Parken, Swimming Poolen, Bowling Hallen eller Zoologisk Have og hvis feltet ikke er ejet får du det gratis
+Chancecase6.SkateParkButton
+Skate Parken
+Chancecase6.SwimmingPoolButton
+Swimming Poolen
+Chancecase6.BowlingAlleyButton
+Bowling Hallen
+Chancecase6.ZooButton
+Zoologisk Have
+Chancecase6.SkatePark
+Skate Parken
+Chancecase6.SwimmingPool
+Swimming Poolen
+Chancecase6.BowlingAlley
+Bowling Hallen
+Chancecase6.Zoo
+Zoologisk Have
+Chancecase7
+Ryk enten til Slikbutikken eller Iskiosken og hvis feltet ikke er ejet får du det gratis
+Chancecase7.CandyStoreButton
+Slikbutikken
+Chancecase7.IceCreamParlorButton
+Iskiosken
+Chancecase7.CandyStore
+Slikbutikken
+Chancecase7.IceCreamParlor
+Iskiosken
+Chancecase8
+Få et kom ud af fængsel kort
+Chancecase9
+Ryk til Strandpromenaden
+Chancecase10
+Ryk enten til Museet, Biblioteket, Vandlandet eller Strandpromenaden og hvis feltet ikke er ejet får du det gratis
+Chancecase10.MuseumButton
+Museet
+Chancecase10.LibraryButton
+Biblioteket
+Chancecase10.WaterParkButton
+Vandlandet
+Chancecase10.BoardwalkButton
+Strandpromenaden
+Chancecase10.Museum
+Museet
+Chancecase10.Library
+Biblioteket
+Chancecase10.WaterPark
+Vandlandet
+Chancecase10.Boardwalk
+Strandpromenaden
+Chancecase11
+Du har lavet dine lektier, få 2M fra banken
+Chancecase12
+Ryk enten til Spillehallen eller Biografen and if og hvis feltet ikke er ejet får du det gratis
+Chancecase12.ArcadeButton
+Spillehallen
+Chancecase12.CinemaButton
+Biografen
+Chancecase12.Arcade
+Spillehallen
+Chancecase12.Cinema
+Biografen
+Chancecase13
+Ryk til Skate Parken
+Chancecase14
+Ryk enten til Slikbutikken, Iskiosken, Spillehallen eller Biografen og hvis feltet ikke er ejet får du det gratis
+Chancecase14.CandyStoreButton
+Slikbutikken
+Chancecase14.IceCreamParlorButton
+Iskiosken
+Chancecase14.ArcadeButton
+Spillehallen
+Chancecase14.CinemaButton
+Biografen
+Chancecase14.CandyStore
+Slikbutikken
+Chancecase14.IceCreamParlor
+Iskiosken
+Chancecase14.Arcade
+Spillehallen
+Chancecase14.Cinema
+Biografen
+Chancecase15
+Ryk enten til Burger Restauranten, Pizzeriaet, Legetøjsbutikken eller Dyrehandlen og hvis feltet ikke er ejet får du det gratis
+Chancecase15.BurgerJointButton
+Burger Restauranten
+Chancecase15.PizzeriaButton
+Pizzeriaet
+Chancecase15.ToyStoreButton
+Legetøjsbutikken
+Chancecase15.PetShopButton
+Dyrehandlen
+Chancecase15.BurgerJoint
+Burger Restauranten
+Chancecase15.Pizzeria
+Pizzeriaet
+Chancecase15.ToyStore
+Legetøjsbutikken
+Chancecase15.PetShop
+Dyrehandlen
+HouseField1
+Burger Restauranten
+HouseField2
+Pizzeriaet
+HouseField3
+Slikbutikken
+HouseField4
+Iskiosken
+HouseField5
+Museet
+HouseField6
+Biblioteket
+HouseField7
+Skate Parken
+HouseField8
+Swimming Poolen
+HouseField9
+Spillehallen
+HouseField10
+Biografen
+HouseField11
+Legetøjsbutikken
+HouseField12
+Dyrehandlen
+HouseField13
+Bowling Hallen
+HouseField14
+Zoologisk Have
+HouseField15
+Vandlandet
+HouseField16
+Strandpromenaden
+BuyPrompt
+Denne bygning er ikke købt. Du har nok penge til at købe den!
+BuyButton
+Buy
+CantBuyPrompt
+Denne bygning er ikke købt. Du har ikke nok penge til at købe den
+ContinueButton
+Fortsæt
+PayRentPrompt1
+Denne bygning er ejet. Du skal betale
+PayRentPrompt2
+M til
+PayRentButton
+Okay
+ChancePayRentPrompt
+Den gratis bygning er allerede ejet, du skal betale husleje
+ChancePayRentButton
+Betal husleje
+ChanceFreeBuildingPrompt
+Denne gratis bygning er ikke ejet. Det er nu din gratis!
+ChanceFreeBuildingButton
+Modtag
+JailFieldTitle
+Gå i fængsel
+JailFieldDescription
+Gå i fængsel
+JailFieldSubText
+Gå i fængsel
+JailFieldVisitTitle
+Fængsel
+JailFieldVisitDescription
+Fængsel
+JailFieldVisitSubText
+Besøger
+UsedGOFJCardPrompt
+Du har brugt et kom ud af fængsel kort
+UsedGOFJCardButton
+OK
+PaidToGOFJPrompt
+Du betalte 1m for at komme ud af fængsel
+PaidToGOFJButton
+OK
+GOFJPrompt
+Gå i fængsel
+GOFJButton
+OK
+ParkingTitle
+Gratis Parkering
+ParkingDescription
+Gratis Parkering
+StartFieldTitle
+Start
+StartFieldDescription
+Start: Få 2m når du passere.
+StartFieldSubText
+Modtag 2m

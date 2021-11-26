@@ -11,9 +11,9 @@ public class GameBoard {
     public HashMap<HouseField, Player> ownership = new HashMap<>();
 
     private Field[] fields;
+    private boolean visit;
 
-    public GameBoard()
-    {
+    public GameBoard() {
         this.fields = this.createFields();
     }
 
@@ -71,12 +71,13 @@ public class GameBoard {
 
     public void BuyBuilding(HouseField field, Player buyer, Game game){
         currentFieldValue = Integer.parseInt(field.getSubText());
-        if(currentFieldValue < buyer.getSaldo()) {
+        if(currentFieldValue <= buyer.getSaldo()) {
             game.getGui().getUserButtonPressed("This building isn't bought. You have enough money to buy it!", "Buy");
             ownership.put(field, buyer);
             buyer.saldoOpdatering(-(currentFieldValue));
         }else {
-            game.getGui().getUserButtonPressed("This building isn't bought. You don't have enough money to buy it", "Continue");
+            game.getGui().getUserButtonPressed("This building isn't bought. You don't have enough money to buy it", "End Game");
+            game.endGame(buyer);
         }
     }
     public void PayRent(HouseField field, Player rentPayer, Game game){
