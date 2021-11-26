@@ -1,7 +1,9 @@
 package Game;// Denne klasse bruges til at lave selve spillet
 
+import Game.Board.ChanceField;
 import Game.Board.Field;
 import Game.Board.GameBoard;
+import Game.Board.JailField;
 import Game.Board.HouseField;
 import gui_fields.GUI_Car;
 import gui_main.GUI;
@@ -23,10 +25,10 @@ public class Game {
         this.gameboard = new GameBoard();
         this.gui = new GUI(gameboard.getGuiFields());
         this.players = new Player[]{
-                new Player(35, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL)),
-                new Player(35, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL)),
-                new Player(35, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL)),
-                new Player(35, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL))};
+                new Player(35, "Beier",new GUI_Car(new Color(65,80,30),Color.blue, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.FILL),false),
+                new Player(35, "Marcus",new GUI_Car(Color.green,Color.blue, GUI_Car.Type.UFO, GUI_Car.Pattern.FILL),false),
+                new Player(35, "Jack",new GUI_Car(Color.red,Color.blue, GUI_Car.Type.RACECAR, GUI_Car.Pattern.FILL),false),
+                new Player(35, "Joy",new GUI_Car(Color.blue,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL),false)};
         this.dice = new Dice(6);
     }
 
@@ -71,7 +73,7 @@ public class Game {
 
         while(players[1].getSaldo()>0){
             playersTurn=i%amountOfPlayers;
-            takeTurn(players[playersTurn]);
+            takeTurn(players[playersTurn],this);
             i++;
         }
 
@@ -82,21 +84,31 @@ public class Game {
             setPlayer(players[i], 0);
             players[i].setSaldo(startBalance);
             gameboard.ownership.clear();
+            ChanceField.ChanceCardNumber=1;
         }
         playGame();
     }
     /**
      * Player takes a turn.
      */
-    private void takeTurn(Player player){
-        this.gui.getUserButtonPressed(player.getNavn()+"'s turn to throw","Throw Die");
+    private void takeTurn(Player player,Game game){
+        this.gui.getUserButtonPressed(player.getNavn()+"s turn to throw","Throw Die");
+        GameBoard gameBoard = getGameBoard();
+        if (player.getLocationIndex() == 6) {
+            this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
+        }
 
+
+
+        this.gui.getUserButtonPressed("kast","kast");
         int dice = this.dice.kastTerning();
         this.gui.setDie(dice);
         movePlayer(player,dice);
-        this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
+        if (player.getLocationIndex() != 6) {
+            this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
+        }
         if(player.getSaldo() <= 0){
-            if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yessirrr", "Noo")){
+            if(gui.getUserLeftButtonPressed( player.getNavn() + " has lost the game! Do you want to start a new game?","Yes", "No")){
                 restartGame();
             } else{
                 System.exit(0);
@@ -139,5 +151,9 @@ public class Game {
             players[i].setSaldo(startMoney);
             startBalance = startMoney;
         }
+    }
+
+    public int getDice() {
+        return dice.kastTerning();
     }
 }

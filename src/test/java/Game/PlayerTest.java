@@ -19,7 +19,7 @@ public class PlayerTest {
     @org.junit.Test
     public void negativBeholdning(){
         GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
-        Player player = new Player(-1000,"navn", car);
+        Player player = new Player(-1000,"navn", car,false);
         int saldo = player.getSaldo();
         int expectedResult = 0;
         assertEquals(expectedResult,saldo);
@@ -28,7 +28,7 @@ public class PlayerTest {
     @org.junit.Test
     public void negativSaldoOpdatering(){
         GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
-        Player player = new Player(0,"navn",car);
+        Player player = new Player(0,"navn",car,false);
         player.saldoOpdatering(-1000);
         int saldo = player.getSaldo();
         int expectedResult = 0;
@@ -38,7 +38,7 @@ public class PlayerTest {
     @org.junit.Test
     public void saldoOpdatering(){
         GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
-        Player player = new Player(0,"navn",car);
+        Player player = new Player(0,"navn",car,false);
         player.saldoOpdatering(500);
         int saldo = player.getSaldo();
         int expectedResult = 500;

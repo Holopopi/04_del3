@@ -4,14 +4,16 @@ import Game.Game;
 import Game.Player;
 import gui_fields.GUI_Jail;
 
+import javax.swing.*;
 import java.awt.*;
 
-public class JailField extends Field{
+public class JailField extends Field {
+    boolean useGetOutOfJail;
 
-    private boolean visit=false;
+    private boolean visit = false;
 
     public JailField(){
-        super("Go to Jail","Go to Jail","Go to Jail", Color.white, Color.black);
+        super("Go to jail","Go to jail","Go to jail", Color.white, Color.black);
     }
 
     public JailField(boolean visit) {
@@ -33,8 +35,25 @@ public class JailField extends Field{
 
     @Override
     public void runAction(Player player, Game game) {
-        if(visit==false){
-            game.setPlayer(player,6);
+        // either use a getOutOfJail card or pay 1m
+        if (player.getInJail()) {
+            if (player.getOutOfJail > 0) {
+                player.getOutOfJail--;
+                game.getGui().getUserButtonPressed("You have used a get out of jail free card", "OK");
+                player.setOutOfJail();
+            } else {
+                player.saldoOpdatering(-1);
+                game.getGui().getUserButtonPressed("You paid 1m to get out of jail", "OK");
+                player.setOutOfJail();
+            }
+        }
+        //puts you into jail
+            if (visit == false) {
+            game.getGui().getUserButtonPressed("Go to jail", "OK");
+            game.setPlayer(player, 6);
+            player.setInJail();
+
+
         }
     }
 }

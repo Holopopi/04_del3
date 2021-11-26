@@ -1,10 +1,232 @@
-knap_1_tekst
-Tryk på mig
-knap_2_tekst
-hej
-brugervelkomst
-velkommen til mit spil
-ugyldigtTræk
-Dette træk er ugyldigt. Vælg noget andet
-skiftsprogknap
-skift sprog
+getUserSelection
+How many players?
+CurrentPlayersTurn
+'s turn to throw
+ThrowDieButton
+Throw Die
+LostGamePrompt
+ has lost the game! Do you want to start a new game?
+NewGameButtonTrue
+Yes
+NewGameButtonFalse
+No
+ChanceTitle
+Chance
+ChanceDescription
+Take a chance card
+Chancecase1
+Move to start and receive 2M
+Chancecase2
+Move between one to five fields
+Chancecase2.1
+You move one field
+Chancecase2.2
+You move two fields
+Chancecase2.3
+You move three fields
+Chancecase2.4
+You move four fields
+Chancecase2.5
+You move five fields
+Chancecase3
+Move to either Skate Park or Swimming Pool and if the field isn't owned you get it for free
+Chancecase3.SkateparkButton
+Skate Park
+Chancecase3.SwimmingPoolButton
+Swimming Pool
+Chancecase4
+Move one or take a new chance card 
+Chancecase4TrueButton
+Move one
+Chancecase4FalseButton
+Take another chance card
+Chancecase5
+You have eaten too much candy, pay 2m to the bank
+Chancecase6
+Move to either the Skate Park, the Swimming Pool, the Bowling Alley or the Zoo and if the field isn't owned you get it for free
+Chancecase6.SkateParkButton
+Skate Park
+Chancecase6.SwimmingPoolButton
+Swimming Pool
+Chancecase6.BowlingAlleyButton
+Bowling Alley
+Chancecase6.ZooButton
+Zoo
+Chancecase6.SkatePark
+Skate Park
+Chancecase6.SwimmingPool
+Swimming Pool
+Chancecase6.BowlingAlley
+Bowling Alley
+Chancecase6.Zoo
+Zoo
+Chancecase7
+Move to either the Candy Store or the Ice Cream Parlor and if the field isn't owned you get it for free
+Chancecase7.CandyStoreButton
+Candy Store
+Chancecase7.IceCreamParlorButton
+Ice Cream Parlor
+Chancecase7.CandyStore
+Candy Store
+Chancecase7.IceCreamParlor
+Ice Cream Parlor
+Chancecase8
+Get a get out of jail card
+Chancecase9
+Move to the Boardwalk
+Chancecase10
+Move to either the Museum, the Library, the Water Park or the Boardwalk and if the field isn't owned you get it for free
+Chancecase10.MuseumButton
+Museum
+Chancecase10.LibraryButton
+Library
+Chancecase10.WaterParkButton
+Water Park
+Chancecase10.BoardwalkButton
+Boardwalk
+Chancecase10.Museum
+Museum
+Chancecase10.Library
+Library
+Chancecase10.WaterPark
+Water Park
+Chancecase10.Boardwalk
+Boardwalk
+Chancecase11
+You have done your homework, gain 2m from the bank
+Chancecase12
+Move to either the Arcade or the Cinema and if the field isn't owned you get it for free
+Chancecase12.ArcadeButton
+Arcade
+Chancecase12.CinemaButton
+Cinema
+Chancecase12.Arcade
+Arcade
+Chancecase12.Cinema
+Cinema
+Chancecase13
+Move to Skate Park
+Chancecase14
+Move to either the Candy Store, Ice Cream Parlor, Arcade or the Cinema and if the field isn't owned you get it for free
+Chancecase14.CandyStoreButton
+Candy Store
+Chancecase14.IceCreamParlorButton
+Ice Cream Parlor
+Chancecase14.ArcadeButton
+Arcade
+Chancecase14.CinemaButton
+Cinema
+Chancecase14.CandyStore
+Candy Store
+Chancecase14.IceCreamParlor
+Ice Cream Parlor
+Chancecase14.Arcade
+Arcade
+Chancecase14.Cinema
+Cinema
+Chancecase15
+Move to either the Burger Joint, Pizzeria, Toy Store or the Pet Shop and if the field isn't owned you get it for free
+Chancecase15.BurgerJointButton
+Burger Joint
+Chancecase15.PizzeriaButton
+Pizzeria
+Chancecase15.ToyStoreButton
+Toy Store
+Chancecase15.PetShopButton
+Pet Shop
+Chancecase15.BurgerJoint
+Burger Joint
+Chancecase15.Pizzeria
+Pizzeria
+Chancecase15.ToyStore
+Toy Store
+Chancecase15.PetShop
+Pet Shop
+HouseField1
+Burger Joint
+HouseField2
+Pizzeria
+HouseField3
+Candy Store
+HouseField4
+Ice Cream Parlor
+HouseField5
+Museum
+HouseField6
+Library
+HouseField7
+Skate Park
+HouseField8
+Swimming Pool
+HouseField9
+Arcade
+HouseField10
+Cinema
+HouseField11
+Toy store
+HouseField12
+Pet Shop
+HouseField13
+Bowling Alley
+HouseField14
+Zoo
+HouseField15
+Water Park
+HouseField16
+The Boardwalk
+BuyPrompt
+This building isn't bought. You have enough money to buy it!
+BuyButton
+Buy
+CantBuyPrompt
+This building isn't bought. You don't have enough money to buy it
+ContinueButton
+Continue
+PayRentPrompt1
+This building is owned. You have to pay 
+PayRentPrompt2
+M to 
+PayRentButton
+Okay
+ChancePayRentPrompt
+The free building is already claimed, you have to pay rent
+ChancePayRentButton
+Pay rent
+ChanceFreeBuildingPrompt
+This free building isn't claimed. It's yours for free!
+ChanceFreeBuildingButton
+Claim
+JailFieldTitle
+Go to jail
+JailFieldDescription
+Go to jail
+JailFieldSubText
+Go to jail
+JailFieldVisitTitle
+Jail
+JailFieldVisitDescription
+Jail
+JailFieldVisitSubText
+Visiting
+UsedGOFJCardPrompt
+You have used a get out of jail free card
+UsedGOFJCardButton
+OK
+PaidToGOFJPrompt
+You paid 1m to get out of jail
+PaidToGOFJButton
+OK
+GOFJPrompt
+Go to jail
+GOFJButton
+OK
+ParkingTitle
+Free Parking
+ParkingDescription
+Free Parking
+StartFieldTitle
+Start
+StartFieldDescription
+Start: Collect 2 when you pass.
+StartFieldSubText
+Collect 2

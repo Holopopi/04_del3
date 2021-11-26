@@ -11,10 +11,14 @@ public class Player {
     private Boolean tur;
     private GUI_Player player;
     private int locationIndex;
+    public int getOutOfJail;
+    private boolean inJail;
+
+
 
     private GUI_Car car = new GUI_Car(Color.black,Color.blue, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
 
-    public Player(int saldo, String navn,GUI_Car car){
+    public Player(int saldo, String navn,GUI_Car car,boolean inJail){
         if (saldo<0){
             this.konto = new Account(0);
         }
@@ -91,5 +95,26 @@ public class Player {
             this.collectStart();
         }
         this.locationIndex = location%24;
+    }
+    // makes get out of jail card
+    public void setGetOutOfJail(int getOutOfJail){
+        getOutOfJail=getOutOfJail;
+    }
+    // show the amount of card the player has
+    private int getGetOutOfJail(){
+        return getOutOfJail;
+    }
+
+    // sets true if a player land of the jail field
+    public void setInJail(){
+        inJail=true;
+    }
+    // returns boolean inJail
+    public boolean getInJail(){
+        return inJail;
+    }
+    // set false when the player have gotten out of jail
+    public void setOutOfJail() {
+        inJail=false;
     }
 }
