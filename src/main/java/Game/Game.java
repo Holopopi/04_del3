@@ -80,8 +80,7 @@ public class Game {
     public void restartGame(){
         for(int i = 0; i < amountOfPlayers; i++) {
             setPlayer(players[i], 0);
-            players[i].saldoOpdatering(-1000);
-            players[i].saldoOpdatering(startBalance);
+            players[i].setSaldo(startBalance);
             gameboard.ownership.clear();
         }
         playGame();

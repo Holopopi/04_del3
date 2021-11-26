@@ -35,6 +35,7 @@ public class Player {
     }
     public void setSaldo(int saldo){
         this.konto.setSaldo(saldo);
+        this.player.setBalance(saldo);
     }
 
     /**
