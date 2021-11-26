@@ -97,10 +97,6 @@ public class Game {
         if (player.getLocationIndex() == 6) {
             this.gameboard.getFields()[player.getLocationIndex()].runAction(player,this);
         }
-
-
-
-        this.gui.getUserButtonPressed("kast","kast");
         int dice = this.dice.kastTerning();
         this.gui.setDie(dice);
         movePlayer(player,dice);
